@@ -10,21 +10,25 @@ import InsuranceProvider from './contexts/InsuranceProvider.context'
 import DesktopNav from './layouts/DesktopNav'
 import Footer from './layouts/Footer'
 import PhoneNav from './layouts/PhoneNav'
+import { SnackProvider } from './contexts/SnackProvider.context'
 
 function App() {
 
   return (
     <Suspense fallback={<Loading />}>
       <ContentProvider>
-        <DesktopNav />
-        <PhoneNav />
-        <InsuranceProvider>
-          <HeroSection />
-        </InsuranceProvider>
-        <ConsultationSection />
-        <CardsSection />
-        <TestimonialsSection />
-        <Footer></Footer>
+        <SnackProvider>
+          <DesktopNav />
+          <PhoneNav />
+          <InsuranceProvider>
+            <HeroSection />
+          </InsuranceProvider>
+          <ConsultationSection />
+          <CardsSection />
+          <TestimonialsSection />
+          <Footer></Footer>
+          <div id='modal-root'></div>
+        </SnackProvider>
       </ContentProvider>
     </Suspense>
   )

@@ -113,5 +113,10 @@
     "facebook": "Facebook",
     "instagram": "Instagram",
     "linkedin": "Linkedin",
-    "youtube": "Youtube"
+    "youtube": "Youtube",
+    "loading": "Se încarcă...",
+    "camp_obligatoriu": "Cîmp obligatoriu",
+    "email_nevalid": "Email nevalid",
+    "password_6_caractere": "Parola trebuie să conțină cel puțin 6 caractere",
+    "numar_nevalid": "Număr nevalid"
 }

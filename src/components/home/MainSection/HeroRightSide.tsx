@@ -3,6 +3,7 @@ import { useContent } from "../../../contexts/ContentProvider.context"
 import ColorImage from "../../system/utils/ColorImage"
 import MEDIAQUERIES from "../../../constants/MEDIAQUERIES"
 import { useInsurance } from "../../../contexts/InsuranceProvider.context"
+import React from "react"
 
 
 const VerticalStepperContainerStyles = styled.div`
@@ -73,12 +74,15 @@ const VerticalStepper = () => {
 
         {new Array(stepsNr).fill(0).map((_, index) => {
             return (
-                <>
-                <PointStyles className={index < step ? "done" : index === step ? "current" : ""}>
+                <React.Fragment
+                key={index}
+                >
+                <PointStyles 
+                className={index < step ? "done" : index === step ? "current" : ""}>
                     {index < step ? <span className="done"></span> : index === step ? <ColorImage color="white" src={icons.check} alt=""></ColorImage> : index}
                 </PointStyles>
                 {index < stepsNr - 1 && <LineStyles></LineStyles>}
-                </>
+                </React.Fragment>
             )
         }
         )}

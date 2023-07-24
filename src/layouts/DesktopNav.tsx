@@ -1,6 +1,5 @@
 import styled from 'styled-components'
 import IconButton from '../components/home/IconButton'
-import MEDIAQUERIES from '../constants/MEDIAQUERIES'
 import Modal from '../components/system/utils/Modal'
 import SignUpModal from '../components/home/SignUpModal'
 import { useState } from 'react'
@@ -85,55 +84,61 @@ margin-right: 20px;
 const DesktopNav = () => {
     const { t } = useTranslation();
 
-    const {icons} = useContent()
+    const { icons } = useContent()
     const [openLogInModal, setOpenLogInModal] = useState(false)
     const [openSignUpModal, setOpenSignUpModal] = useState(false)
     const [openMenu, setOpenMenu] = useState(false)
-  return (
-    <ContainerStyles>
-        <DektopSidebarMenu visible={openMenu} setVisible={setOpenMenu}/>
-        <div className='flex justify-center items-center'>
-            <MenuButtonStyles
-            onClick={() => setOpenMenu(prev=>!prev)}
+    return (
+        <ContainerStyles>
+            <DektopSidebarMenu visible={openMenu} setVisible={setOpenMenu} />
+            <div className='flex justify-center items-center'>
+                <MenuButtonStyles
+                    onClick={() => setOpenMenu(prev => !prev)}
+                >
+                    <img src={icons['menu1']} alt=""></img>
+
+                </MenuButtonStyles>
+                <img height={34} src={icons.logo}></img>
+            </div>
+            <MiddleTextContainer>
+                <div className='h3 raleway'>{t("nav_title")}</div>
+                <div className='line'></div>
+            </MiddleTextContainer>
+            <AuthButtonsContainer>
+                <IconButton
+                    onClick={() => setOpenLogInModal(true)}
+                    icon={<ColorImage color='burgundy' height={32} width={32} src={icons['users']} alt=""></ColorImage>}
+                    text={t("logare")}
+                >
+                </IconButton>
+
+                <IconButton
+                    onClick={() => setOpenSignUpModal(true)}
+                    icon={<ColorImage color='burgundy' height={32} width={32} src={icons['file-reg']} alt=""></ColorImage>}
+                    text={t("inregistrare")}
+                />
+
+            </AuthButtonsContainer>
+            <Modal
+                visible={openLogInModal}
+                setVisible={setOpenLogInModal}
             >
-                <img src={icons['menu1']} alt=""></img>
-                
-</MenuButtonStyles>
-             <img height={34} src={icons.logo}></img>
-        </div>
-        <MiddleTextContainer>
-            <div className='h3 raleway'>{t("nav_title")}</div>
-            <div className='line'></div>
-        </MiddleTextContainer>
-        <AuthButtonsContainer>
-            <IconButton
-            onClick={() => setOpenLogInModal(true)}
-            icon={<ColorImage color='burgundy' height={32} width={32} src={icons['users']} alt=""></ColorImage>}
-            text={t("logare")}
-            >
-            </IconButton>
-        
-            <IconButton
-            onClick={() => setOpenSignUpModal(true)}
-            icon={<ColorImage color='burgundy' height={32} width={32} src={icons['file-reg']} alt=""></ColorImage>}
-            text={t("inregistrare")}
-            />
-        
-        </AuthButtonsContainer>
-        <Modal
-            visible={openLogInModal}
-            setVisible={setOpenLogInModal}
-            >
-                <LogInModal/>
+                <LogInModal
+                    closeModal={() => setOpenLogInModal(false)}
+                    openSignUpModal={() => setOpenSignUpModal(true)}
+                />
             </Modal>
             <Modal
-            visible={openSignUpModal}
-            setVisible={setOpenSignUpModal}
+                visible={openSignUpModal}
+                setVisible={setOpenSignUpModal}
             >
-                <SignUpModal/>
+                <SignUpModal
+                    closeModal={() => setOpenSignUpModal(false)}
+                    openLogInModal={() => setOpenLogInModal(true)}
+                />
             </Modal>
-    </ContainerStyles>
-  )
+        </ContainerStyles>
+    )
 }
 
 export default DesktopNav

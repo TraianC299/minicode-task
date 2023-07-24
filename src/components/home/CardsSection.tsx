@@ -7,7 +7,7 @@ import ColorImage from '../system/utils/ColorImage'
 import { useTranslation } from 'react-i18next'
 
 
-const Container = styled.div<{bgImage: string}>`
+const Container = styled.div<{image: string}>`
 display: flex;
 width: 100%;
 padding: 0px;
@@ -29,8 +29,8 @@ content: ' ';
   top: 0;
   width: 100%;
   height: 100%;
-  opacity: 0.2;
-  background-image: url(${props => props.bgImage});
+  opacity: 0.35;
+  background-image: url(${props => props.image});
   background-repeat: no-repeat;
   background-position: 50% 0;
   background-size: cover;
@@ -68,7 +68,7 @@ const CardsSection = () => {
     const {images, icons, cards} = useContent()
   return (
     <Container
-    bgImage={images["card-section-bg"]}
+    image={images["card-section-bg"]}
     >
         <ContentContainer className='max-width'>
             <div className='flex justify-between items-center w-full'>

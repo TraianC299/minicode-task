@@ -1,404 +1,437 @@
 {
-    "cards": [
+  "forms": [
+    {
+      "id": "1",
+      "title": "carte_verde",
+      "active": true,
+      "steps": [
+        "alege_tipul_autovehiculului",
+        "zona_de_deplasare"
+      ],
+      "form": {
+        "vehicul": null,
+        "zonaDeDeplasare": [],
+        "valabilitateaPolitei": null
+      },
+      "validation_rules": {
+        "vehicul": "empty",
+        "zonaDeDeplasare": "multiple",
+        "valabilitateaPolitei": "empty"
+      },
+      "info": [
         {
-            "id": "1",
-            "title": "card_title",
-            "subtitle": "card_subtitle",
-            "slug": "asigura-ti-locuinta-atunci-cand-pleci-in-vacanta",
-            "image": "http://localhost:3030/images/card_1.png"
+          "id": "1",
+          "title": "obiectul_asigurarii",
+          "content": "carte_verde_obiectul_asigurarii"
         },
         {
-            "id": "2",
-            "title": "card_title",
-            "subtitle": "card_subtitle",
-            "slug": "asigura-ti-locuinta-atunci-cand-pleci-in-vacanta",
-            "image": "http://localhost:3030/images/card_2.png"
-        },
-        {
-            "id": "3",
-            "title": "card_title",
-            "subtitle": "card_subtitle",
-            "slug": "asigura-ti-locuinta-atunci-cand-pleci-in-vacanta",
-            "image": "http://localhost:3030/images/card_3.png"
+          "id": "2",
+          "title": "riscuri_si_obligatiuni",
+          "content": "carte_verde_riscuri_si_obligatiuni"
         }
-    ],
-    "vehicles": [
-        {
-            "id": "1",
-            "title": "autoturism_cu_pana_la_9",
-            "icon": "http://localhost:3030/icons/special/car.svg"
-        },
-        {
-            "id": "2",
-            "title": "camion_pana_la_3",
-            "icon": "http://localhost:3030/icons/special/minitruck.svg"
-        },
-        {
-            "id": "3",
-            "title": "camion_peste_3",
-            "icon": "http://localhost:3030/icons/special/truck.svg"
-        },
-        {
-            "id": "4",
-            "title": "microbus_de_pana_la_20",
-            "icon": "http://localhost:3030/icons/special/minibus.svg"
-        },
-        {
-            "id": "5",
-            "title": "autobuz_peste_20",
-            "icon": "http://localhost:3030/icons/special/bus.svg"
-        },
-        {
-            "id": "6",
-            "title": "Remorci, semiremorci",
-            "icon": "http://localhost:3030/icons/special/trailer.svg"
-        },
-        {
-            "id": "7",
-            "title": "refrigeratoare_cisterne",
-            "icon": "http://localhost:3030/icons/special/refrigerant.svg"
-        },
-        {
-            "id": "8",
-            "title": "tehnica_speciala",
-            "icon": "http://localhost:3030/icons/special/technique.svg"
-        },
-        {
-            "id": "9",
-            "title": "echipament_suplimentar",
-            "icon": "http://localhost:3030/icons/special/other-technique.svg"
-        }
-    ],
-    "consultation_section": {
-        "title": "Ai nevoie de o consultatie?",
-        "subtitle": "Lasă numele și numărul tău de telefon, iar noi te vom contacta în cel mai scurt timp posibil.",
-        "button": "Trimite"
-    },
-    "testimonials": [
-        {
-            "id": "1",
-            "image": "http://localhost:3030/images/testimonial_profile_1.png",
-            "name": "Vasile Moraru",
-            "content": {
-                "ro": "Am fost implicat recent intr-un accident rutier. Am fost despagubit in timp. Personal foarte amabil. Recomand cu incredere!",
-                "ru": "Я недавно попал в дорожно-транспортное происшествие. Я был компенсирован во время. Очень дружелюбный персонал. Я рекомендую с уверенностью!"
-            },
-            "rating": 4
-        },
-        {
-            "id": "2",
-            "image": "http://localhost:3030/images/testimonial_profile_2.png",
-            "name": "Valeria Ivanov",
-            "content": {
-                "ro": "Experiență excelentă cu servicii rapide și suport de calitate. Îmi oferă liniștea de care am nevoie.",
-                "ru": "Отличный опыт с быстрыми услугами и качественной поддержкой. Он дает мне спокойствие, которое мне нужно."
-            },
-            "rating": 4
-        },
-        {
-            "id": "3",
-            "image": "http://localhost:3030/images/testimonial_profile_3.png",
-            "name": "Vasile Romanov",
-            "content": {
-                "ro": "Echipa lor profesionistă m-a ajutat cu promptitudine în momente critice. Recomand cu căldură asigurările lor.",
-                "ru": "Их профессиональная команда оперативно помогла мне в критические моменты. Я искренне рекомендую их страховку."
-            },
-            "rating": 5
-        },
-        {
-            "id": "4",
-            "image": "http://localhost:3030/images/testimonial_profile_4.png",
-            "name": "Vasile Romanov",
-            "content": {
-                "ro": "Asistență rapidă și sprijin în orice problemă. Un partener de încredere în orice situație neașteptată.",
-                "ru": "Быстрая помощь и поддержка в любой проблеме. Надежный партнер в любой непредвиденной ситуации."
-            },
-            "rating": 5
-        },
-        {
-            "id": "5",
-            "image": "http://localhost:3030/images/testimonial_profile_5.png",
-            "name": "Cody Fisher",
-            "content": {
-                "ro": "Am fost implicat recent intr-un accident rutier. Am fost despagubit in timp. Personal foarte amabil. Recomand cu incredere!",
-                "ru": "Я недавно попал в дорожно-транспортное происшествие. Я был компенсирован во время. Очень дружелюбный персонал. Я рекомендую с уверенностью!"
-            },
-            "rating": 4
-        },
-        {
-            "id": "6",
-            "image": "http://localhost:3030/images/testimonial_profile_6.png",
-            "name": "Theresa Webb",
-            "content": {
-                "ro": "Consectetur adipiscing elit duis tristique sollicitudin nibh sit amet commodo nulla facilisi nullam vehicula ipsum a arcu cursus vitae congue",
-                "ru": "Их профессиональная команда оперативно помогла мне в критические моменты. Я искренне рекомендую их страховку."
-            },
-            "rating": 5
-        },
-        {
-            "id": "7",
-            "image": "http://localhost:3030/images/testimonial_profile_7.png",
-            "name": "Darlene Robertson",
-            "content": {
-                "ro": "Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet.",
-                "ru": "Быстрая помощь и поддержка в любой проблеме. Надежный партнер в любой непредвиденной ситуации."
-            },
-            "rating": 4
-        },
-        {
-            "id": "8",
-            "image": "http://localhost:3030/images/testimonial_profile_8.png",
-            "name": "Albert Flores",
-            "content": {
-                "ro": "Aliqua id fugiat nostrud irure ex duis ea quis id quis ad et. Sunt qui esse pariatur duis deserunt mollit dolore cillum minim tempor enim. Elit aute irure tempor cupidatat incididunt sint deserunt ut voluptate aute id deserunt nisi.",
-                "ru": "Их профессиональная команда оперативно помогла мне в критические моменты. Я искренне рекомендую их страховку."
-            },
-            "rating": 4
-        },
-        {
-            "id": "9",
-            "image": "http://localhost:3030/images/testimonial_profile_9.png",
-            "name": "Ronald Richards",
-            "content": {
-                "ro:": "Am fost implicat recent intr-un accident rutier. Am fost despagubit in timp. Personal foarte amabil. Recomand cu incredere!",
-                "ru": "Я недавно попал в дорожно-транспортное происшествие. Я был компенсирован во время. Очень дружелюбный персонал. Я рекомендую с уверенностью!"
-            },
-            "rating": 4
-        },
-        {
-            "id": "10",
-            "image": "http://localhost:3030/images/testimonial_profile_10.png",
-            "name": "Annette Black",
-            "content": {
-                "ro": "Aliqua id fugiat nostrud irure ex duis ea quis id quis ad et. Sunt qui esse pariatur duis deserunt mollit dolore cillum minim tempor enim. Elit aute irure tempor cupidatat incididunt sint deserunt ut voluptate aute id deserunt nisi.",
-                "ru": "Их профессиональная команда оперативно помогла мне в критические моменты. Я искренне рекомендую их страховку."
-            },
-            "rating": 5
-        },
-        {
-            "id": "11",
-            "image": "http://localhost:3030/images/testimonial_profile_11.png",
-            "name": "Floyd Miles",
-            "content": {
-                "ro": "Am fost implicat recent intr-un accident rutier. Am fost despagubit in timp. Personal foarte amabil. Recomand cu incredere!",
-                "ru": "Я недавно попал в дорожно-транспортное происшествие. Я был компенсирован во время. Очень дружелюбный персонал. Я рекомендую с уверенностью!"
-            },
-            "rating": 4
-        },
-        {
-            "id": "12",
-            "image": "http://localhost:3030/images/testimonial_profile_12.png",
-            "name": "Ralph Edwards",
-            "content": {
-                "ro": "Am fost implicat recent intr-un accident rutier. Am fost despagubit in timp. Personal foarte amabil. Recomand cu incredere!",
-                "ru": "Я недавно попал в дорожно-транспортное происшествие. Я был компенсирован во время. Очень дружелюбный персонал. Я рекомендую с уверенностью!"
-            },
-            "rating": 4
-        }
-    ],
-    "insurance": [
-        {
-            "id": "1",
-            "title": "carte_verde",
-            "active": true,
-            "steps":[
-                "alege_tipul_autovehiculului",
-                "zona_de_deplasare"
-            ],
-            "form": {
-                "vehicul": null,
-                "zonaDeDeplasare": [],
-                "valabilitateaPolitei": null
-            },
-            "validation_rules":{
-                "vehicul": "empty",
-                "zonaDeDeplasare": "multiple",
-                "valabilitateaPolitei": "empty"
-            },
-            "info": [
-                {
-                    "id": "1",
-                    "title": "obiectul_asigurarii",
-                    "content": "carte_verde_obiectul_asigurarii"
-                },
-                {
-                    "id": "2",
-                    "title": "riscuri_si_obligatiuni",
-                    "content": "carte_verde_riscuri_si_obligatiuni"
-                }
-            ]
-        },
-        {
-            "id": "2",
-            "title": "rca",
-            "active": true,
-            "steps":[
-                "alege_tipul_autovehiculului",
-                "alege_marca",
-                "numarul_de_locuri"
-            ],
-            "form": {
-                "automobilImatriculat": null,
-                "persoana": null,
-                "domiciliu": "",
-                "vehicul": null,
-                "nrLocuri": null,
-                "nrPersAdmise": null,
-                "stagiu": null,
-                "pensionar": null,
-                "rcaAsigurat": null,
-                "asigRemorca": null
-            },
-            "validation_rules":{
-                "automobilImatriculat": "empty",
-                "persoana": "empty",
-                "domiciliu": "empty",
-                "vehicul": "empty",
-                "nrLocuri": "empty",
-                "nrPersAdmise": "empty",
-                "stagiu": "empty",
-                "pensionar": "empty",
-                "rcaAsigurat": "empty",
-                "asigRemorca": "empty"
-            },
-            "info": [
-                {
-                    "id": "1",
-                    "title": "obiectul_asigurarii",
-                    "content":"rca_obiectul_asigurarii"
-                },
-                {
-                    "id": "2",
-                    "title": "riscuri_si_obligatiuni",
-                    "content": "rca_riscuri_si_obligatiuni"
-                }
-            ]
-        },
-        {
-            "id": "3",
-            "title": "casco",
-            "active": true,
-            "steps":[
-                "alege_tipul_autovehiculului",
-                "alege_marca",
-                "alege_valoarea_pe_piata"
-            ],
-            "form": {
-                "vehicul": null,
-                "model": "",
-                "marca": "",
-                "anProducere": null,
-                "valoareaPePiata": "",
-                "teritoriulDeAcoperire": null,
-                "fransiza": null
-            },
-            "validation_rules":{
-                "vehicul": "empty",
-                "model": "empty",
-                "marca": "empty",
-                "anProducere": "empty",
-                "valoareaPePiata": "empty",
-                "teritoriulDeAcoperire": "empty",
-                "fransiza": "empty"
-            },
-            "info": [
-                {
-                    "id": "1",
-                    "title": "obiectul_asigurarii",
-                    "content":"casco_obiectul_asigurarii"
-                },
-                {
-                    "id": "2",
-                    "title": "riscuri_si_obligatiuni",
-                    "content": "casco_riscuri_si_obligatiuni"
-                }
-            ]
-        },
-        {
-            "id": "4",
-            "title": "medicala",
-            "active": false
-        },
-        {
-            "id": "5",
-            "title": "accidente",
-            "active": false
-        },
-        {
-            "id": "6",
-            "title": "bunuri",
-            "active": false
-        },
-        {
-            "id": "7",
-            "title": "locuinte_imobile",
-            "active": false
-        }
-    ],
-    "consulatie_form": {
-        "title": "Ai nevoie de o consultatie?",
-        "subtitle": "Lasă numele și numărul tău de telefon, iar noi te vom contacta în cel mai scurt timp posibil.",
-        "button": "Trimite"
-    },
-    "icons": {
-        "arrow-right": "http://localhost:3030/icons/main/arrow-right.svg",
-        "arrow": "http://localhost:3030/icons/main/arrow.svg",
-        "check-circle": "http://localhost:3030/icons/main/check-circle.svg",
-        "check": "http://localhost:3030/icons/main/check.svg",
-        "close": "http://localhost:3030/icons/main/close.svg",
-        "correct": "http://localhost:3030/icons/main/correct.svg",
-        "delivery": "http://localhost:3030/icons/main/delivery.svg",
-        "enter": "http://localhost:3030/icons/main/enter.svg",
-        "exchange": "http://localhost:3030/icons/main/exchange.svg",
-        "facebook": "http://localhost:3030/icons/main/facebook.svg",
-        "file-reg": "http://localhost:3030/icons/main/file-reg.svg",
-        "heart": "http://localhost:3030/icons/main/heart.svg",
-        "home": "http://localhost:3030/icons/main/home.svg",
-        "instagram": "http://localhost:3030/icons/main/instagram.svg",
-        "lang": "http://localhost:3030/icons/main/lang.svg",
-        "location": "http://localhost:3030/icons/main/location.svg",
-        "mail": "http://localhost:3030/icons/main/mail.svg",
-        "map": "http://localhost:3030/icons/main/map.svg",
-        "menu": "http://localhost:3030/icons/main/menu.svg",
-        "menu1": "http://localhost:3030/icons/main/menu1.svg",
-        "messenger": "http://localhost:3030/icons/main/messenger.svg",
-        "minus": "http://localhost:3030/icons/main/minus.svg",
-        "phone": "http://localhost:3030/icons/main/phone.svg",
-        "placeholder": "http://localhost:3030/icons/main/placeholder.svg",
-        "plus": "http://localhost:3030/icons/main/plus.svg",
-        "question": "http://localhost:3030/icons/main/question.svg",
-        "search": "http://localhost:3030/icons/main/search.svg",
-        "sort": "http://localhost:3030/icons/main/sort.svg",
-        "star-filled": "http://localhost:3030/icons/main/star-filled.svg",
-        "star": "http://localhost:3030/icons/main/star.svg",
-        "support": "http://localhost:3030/icons/main/support.svg",
-        "telegram": "http://localhost:3030/icons/main/telegram.svg",
-        "user": "http://localhost:3030/icons/main/user.svg",
-        "users": "http://localhost:3030/icons/main/users.svg",
-        "viber": "http://localhost:3030/icons/main/viber.svg",
-        "whatsapp": "http://localhost:3030/icons/main/whatsapp.svg",
-        "bike": "http://localhost:3030/icons/special/bike.svg",
-        "bus": "http://localhost:3030/icons/special/bus.svg",
-        "car": "http://localhost:3030/icons/special/car.svg",
-        "minibus": "http://localhost:3030/icons/special/minibus.svg",
-        "minitruck": "http://localhost:3030/icons/special/minitruck.svg",
-        "other-technique": "http://localhost:3030/icons/special/other-technique.svg",
-        "refrigerant": "http://localhost:3030/icons/special/refrigerant.svg",
-        "technique": "http://localhost:3030/icons/special/technique.svg",
-        "tractor": "http://localhost:3030/icons/special/tractor.svg",
-        "trailer": "http://localhost:3030/icons/special/trailer.svg",
-        "truck": "http://localhost:3030/icons/special/truck.svg",
-        "logo": "http://localhost:3030/icons/others/logo.svg"
-    },
-    "images": {
-        "card-section-bg": "http://localhost:3030/images/card-section-bg.jpeg",
-        "card1": "http://localhost:3030/images/card_1.jpeg",
-        "card2": "http://localhost:3030/images/card_2.jpeg",
-        "card3": "http://localhost:3030/images/card_3.jpeg",
-        "testimonial1": "http://localhost:3030/images/testimonial_profile_1.png",
-        "testimonial2": "http://localhost:3030/images/testimonial_profile_2.png",
-        "testimonial3": "http://localhost:3030/images/testimonial_profile_3.png",
-        "testimonial4": "http://localhost:3030/images/testimonial_profile_4.png",
-        "24h": "http://localhost:3030/images/24h.png"
+      ]
     }
+  ],
+  "cards": [
+    {
+      "id": "1",
+      "title": "card_title",
+      "subtitle": "card_subtitle",
+      "slug": "asigura-ti-locuinta-atunci-cand-pleci-in-vacanta",
+      "image": "http://localhost:3030/images/card_1.png"
+    },
+    {
+      "id": "2",
+      "title": "card_title",
+      "subtitle": "card_subtitle",
+      "slug": "asigura-ti-locuinta-atunci-cand-pleci-in-vacanta",
+      "image": "http://localhost:3030/images/card_2.png"
+    },
+    {
+      "id": "3",
+      "title": "card_title",
+      "subtitle": "card_subtitle",
+      "slug": "asigura-ti-locuinta-atunci-cand-pleci-in-vacanta",
+      "image": "http://localhost:3030/images/card_3.png"
+    }
+  ],
+  "vehicles": [
+    {
+      "id": "1",
+      "title": "autoturism_cu_pana_la_9",
+      "icon": "http://localhost:3030/icons/special/car.svg"
+    },
+    {
+      "id": "2",
+      "title": "camion_pana_la_3",
+      "icon": "http://localhost:3030/icons/special/minitruck.svg"
+    },
+    {
+      "id": "3",
+      "title": "camion_peste_3",
+      "icon": "http://localhost:3030/icons/special/truck.svg"
+    },
+    {
+      "id": "4",
+      "title": "microbus_de_pana_la_20",
+      "icon": "http://localhost:3030/icons/special/minibus.svg"
+    },
+    {
+      "id": "5",
+      "title": "autobuz_peste_20",
+      "icon": "http://localhost:3030/icons/special/bus.svg"
+    },
+    {
+      "id": "6",
+      "title": "Remorci, semiremorci",
+      "icon": "http://localhost:3030/icons/special/trailer.svg"
+    },
+    {
+      "id": "7",
+      "title": "refrigeratoare_cisterne",
+      "icon": "http://localhost:3030/icons/special/refrigerant.svg"
+    },
+    {
+      "id": "8",
+      "title": "tehnica_speciala",
+      "icon": "http://localhost:3030/icons/special/technique.svg"
+    },
+    {
+      "id": "9",
+      "title": "echipament_suplimentar",
+      "icon": "http://localhost:3030/icons/special/other-technique.svg"
+    }
+  ],
+  "consultation_section": {
+    "title": "Ai nevoie de o consultatie?",
+    "subtitle": "Lasă numele și numărul tău de telefon, iar noi te vom contacta în cel mai scurt timp posibil.",
+    "button": "Trimite"
+  },
+  "testimonials": [
+    {
+      "id": "1",
+      "image": "http://localhost:3030/images/testimonial_profile_1.png",
+      "name": "Vasile Moraru",
+      "content": {
+        "ro": "Am fost implicat recent intr-un accident rutier. Am fost despagubit in timp. Personal foarte amabil. Recomand cu incredere!",
+        "ru": "Я недавно попал в дорожно-транспортное происшествие. Я был компенсирован во время. Очень дружелюбный персонал. Я рекомендую с уверенностью!"
+      },
+      "rating": 4
+    },
+    {
+      "id": "2",
+      "image": "http://localhost:3030/images/testimonial_profile_2.png",
+      "name": "Valeria Ivanov",
+      "content": {
+        "ro": "Experiență excelentă cu servicii rapide și suport de calitate. Îmi oferă liniștea de care am nevoie.",
+        "ru": "Отличный опыт с быстрыми услугами и качественной поддержкой. Он дает мне спокойствие, которое мне нужно."
+      },
+      "rating": 4
+    },
+    {
+      "id": "3",
+      "image": "http://localhost:3030/images/testimonial_profile_3.png",
+      "name": "Vasile Romanov",
+      "content": {
+        "ro": "Echipa lor profesionistă m-a ajutat cu promptitudine în momente critice. Recomand cu căldură asigurările lor.",
+        "ru": "Их профессиональная команда оперативно помогла мне в критические моменты. Я искренне рекомендую их страховку."
+      },
+      "rating": 5
+    },
+    {
+      "id": "4",
+      "image": "http://localhost:3030/images/testimonial_profile_4.png",
+      "name": "Vasile Romanov",
+      "content": {
+        "ro": "Asistență rapidă și sprijin în orice problemă. Un partener de încredere în orice situație neașteptată.",
+        "ru": "Быстрая помощь и поддержка в любой проблеме. Надежный партнер в любой непредвиденной ситуации."
+      },
+      "rating": 5
+    },
+    {
+      "id": "5",
+      "image": "http://localhost:3030/images/testimonial_profile_5.png",
+      "name": "Cody Fisher",
+      "content": {
+        "ro": "Am fost implicat recent intr-un accident rutier. Am fost despagubit in timp. Personal foarte amabil. Recomand cu incredere!",
+        "ru": "Я недавно попал в дорожно-транспортное происшествие. Я был компенсирован во время. Очень дружелюбный персонал. Я рекомендую с уверенностью!"
+      },
+      "rating": 4
+    },
+    {
+      "id": "6",
+      "image": "http://localhost:3030/images/testimonial_profile_6.png",
+      "name": "Theresa Webb",
+      "content": {
+        "ro": "Consectetur adipiscing elit duis tristique sollicitudin nibh sit amet commodo nulla facilisi nullam vehicula ipsum a arcu cursus vitae congue",
+        "ru": "Их профессиональная команда оперативно помогла мне в критические моменты. Я искренне рекомендую их страховку."
+      },
+      "rating": 5
+    },
+    {
+      "id": "7",
+      "image": "http://localhost:3030/images/testimonial_profile_7.png",
+      "name": "Darlene Robertson",
+      "content": {
+        "ro": "Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet.",
+        "ru": "Быстрая помощь и поддержка в любой проблеме. Надежный партнер в любой непредвиденной ситуации."
+      },
+      "rating": 4
+    },
+    {
+      "id": "8",
+      "image": "http://localhost:3030/images/testimonial_profile_8.png",
+      "name": "Albert Flores",
+      "content": {
+        "ro": "Aliqua id fugiat nostrud irure ex duis ea quis id quis ad et. Sunt qui esse pariatur duis deserunt mollit dolore cillum minim tempor enim. Elit aute irure tempor cupidatat incididunt sint deserunt ut voluptate aute id deserunt nisi.",
+        "ru": "Их профессиональная команда оперативно помогла мне в критические моменты. Я искренне рекомендую их страховку."
+      },
+      "rating": 4
+    },
+    {
+      "id": "9",
+      "image": "http://localhost:3030/images/testimonial_profile_9.png",
+      "name": "Ronald Richards",
+      "content": {
+        "ro:": "Am fost implicat recent intr-un accident rutier. Am fost despagubit in timp. Personal foarte amabil. Recomand cu incredere!",
+        "ru": "Я недавно попал в дорожно-транспортное происшествие. Я был компенсирован во время. Очень дружелюбный персонал. Я рекомендую с уверенностью!"
+      },
+      "rating": 4
+    },
+    {
+      "id": "10",
+      "image": "http://localhost:3030/images/testimonial_profile_10.png",
+      "name": "Annette Black",
+      "content": {
+        "ro": "Aliqua id fugiat nostrud irure ex duis ea quis id quis ad et. Sunt qui esse pariatur duis deserunt mollit dolore cillum minim tempor enim. Elit aute irure tempor cupidatat incididunt sint deserunt ut voluptate aute id deserunt nisi.",
+        "ru": "Их профессиональная команда оперативно помогла мне в критические моменты. Я искренне рекомендую их страховку."
+      },
+      "rating": 5
+    },
+    {
+      "id": "11",
+      "image": "http://localhost:3030/images/testimonial_profile_11.png",
+      "name": "Floyd Miles",
+      "content": {
+        "ro": "Am fost implicat recent intr-un accident rutier. Am fost despagubit in timp. Personal foarte amabil. Recomand cu incredere!",
+        "ru": "Я недавно попал в дорожно-транспортное происшествие. Я был компенсирован во время. Очень дружелюбный персонал. Я рекомендую с уверенностью!"
+      },
+      "rating": 4
+    },
+    {
+      "id": "12",
+      "image": "http://localhost:3030/images/testimonial_profile_12.png",
+      "name": "Ralph Edwards",
+      "content": {
+        "ro": "Am fost implicat recent intr-un accident rutier. Am fost despagubit in timp. Personal foarte amabil. Recomand cu incredere!",
+        "ru": "Я недавно попал в дорожно-транспортное происшествие. Я был компенсирован во время. Очень дружелюбный персонал. Я рекомендую с уверенностью!"
+      },
+      "rating": 4
+    }
+  ],
+  "insurance": [
+    {
+      "id": "1",
+      "title": "carte_verde",
+      "active": true,
+      "steps": [
+        "alege_tipul_autovehiculului",
+        "zona_de_deplasare"
+      ],
+      "form": {
+        "vehicul": null,
+        "zonaDeDeplasare": [],
+        "valabilitateaPolitei": null
+      },
+      "validation_rules": {
+        "vehicul": "empty",
+        "zonaDeDeplasare": "multiple",
+        "valabilitateaPolitei": "empty"
+      },
+      "info": [
+        {
+          "id": "1",
+          "title": "obiectul_asigurarii",
+          "content": "carte_verde_obiectul_asigurarii"
+        },
+        {
+          "id": "2",
+          "title": "riscuri_si_obligatiuni",
+          "content": "carte_verde_riscuri_si_obligatiuni"
+        }
+      ]
+    },
+    {
+      "id": "2",
+      "title": "rca",
+      "active": true,
+      "steps": [
+        "alege_tipul_autovehiculului",
+        "alege_marca",
+        "numarul_de_locuri"
+      ],
+      "form": {
+        "automobilImatriculat": null,
+        "persoana": null,
+        "domiciliu": "",
+        "vehicul": null,
+        "nrLocuri": null,
+        "nrPersAdmise": null,
+        "stagiu": null,
+        "pensionar": null,
+        "rcaAsigurat": null,
+        "asigRemorca": null
+      },
+      "validation_rules": {
+        "automobilImatriculat": "empty",
+        "persoana": "empty",
+        "domiciliu": "empty",
+        "vehicul": "empty",
+        "nrLocuri": "empty",
+        "nrPersAdmise": "empty",
+        "stagiu": "empty",
+        "pensionar": "empty",
+        "rcaAsigurat": "empty",
+        "asigRemorca": "empty"
+      },
+      "info": [
+        {
+          "id": "1",
+          "title": "obiectul_asigurarii",
+          "content": "rca_obiectul_asigurarii"
+        },
+        {
+          "id": "2",
+          "title": "riscuri_si_obligatiuni",
+          "content": "rca_riscuri_si_obligatiuni"
+        }
+      ]
+    },
+    {
+      "id": "3",
+      "title": "casco",
+      "active": true,
+      "steps": [
+        "alege_tipul_autovehiculului",
+        "alege_marca",
+        "alege_valoarea_pe_piata"
+      ],
+      "form": {
+        "vehicul": null,
+        "model": "",
+        "marca": "",
+        "anProducere": null,
+        "valoareaPePiata": "",
+        "teritoriulDeAcoperire": null,
+        "fransiza": null
+      },
+      "validation_rules": {
+        "vehicul": "empty",
+        "model": "empty",
+        "marca": "empty",
+        "anProducere": "empty",
+        "valoareaPePiata": "empty",
+        "teritoriulDeAcoperire": "empty",
+        "fransiza": "empty"
+      },
+      "info": [
+        {
+          "id": "1",
+          "title": "obiectul_asigurarii",
+          "content": "casco_obiectul_asigurarii"
+        },
+        {
+          "id": "2",
+          "title": "riscuri_si_obligatiuni",
+          "content": "casco_riscuri_si_obligatiuni"
+        }
+      ]
+    },
+    {
+      "id": "4",
+      "title": "medicala",
+      "active": false
+    },
+    {
+      "id": "5",
+      "title": "accidente",
+      "active": false
+    },
+    {
+      "id": "6",
+      "title": "bunuri",
+      "active": false
+    },
+    {
+      "id": "7",
+      "title": "locuinte_imobile",
+      "active": false
+    }
+  ],
+  "consulatie_form": {
+    "title": "Ai nevoie de o consultatie?",
+    "subtitle": "Lasă numele și numărul tău de telefon, iar noi te vom contacta în cel mai scurt timp posibil.",
+    "button": "Trimite"
+  },
+  "icons": {
+    "arrow-right": "http://localhost:3030/icons/main/arrow-right.svg",
+    "arrow": "http://localhost:3030/icons/main/arrow.svg",
+    "check-circle": "http://localhost:3030/icons/main/check-circle.svg",
+    "check": "http://localhost:3030/icons/main/check.svg",
+    "close": "http://localhost:3030/icons/main/close.svg",
+    "correct": "http://localhost:3030/icons/main/correct.svg",
+    "delivery": "http://localhost:3030/icons/main/delivery.svg",
+    "enter": "http://localhost:3030/icons/main/enter.svg",
+    "exchange": "http://localhost:3030/icons/main/exchange.svg",
+    "facebook": "http://localhost:3030/icons/main/facebook.svg",
+    "file-reg": "http://localhost:3030/icons/main/file-reg.svg",
+    "heart": "http://localhost:3030/icons/main/heart.svg",
+    "home": "http://localhost:3030/icons/main/home.svg",
+    "instagram": "http://localhost:3030/icons/main/instagram.svg",
+    "lang": "http://localhost:3030/icons/main/lang.svg",
+    "location": "http://localhost:3030/icons/main/location.svg",
+    "mail": "http://localhost:3030/icons/main/mail.svg",
+    "map": "http://localhost:3030/icons/main/map.svg",
+    "menu": "http://localhost:3030/icons/main/menu.svg",
+    "menu1": "http://localhost:3030/icons/main/menu1.svg",
+    "messenger": "http://localhost:3030/icons/main/messenger.svg",
+    "minus": "http://localhost:3030/icons/main/minus.svg",
+    "phone": "http://localhost:3030/icons/main/phone.svg",
+    "placeholder": "http://localhost:3030/icons/main/placeholder.svg",
+    "plus": "http://localhost:3030/icons/main/plus.svg",
+    "question": "http://localhost:3030/icons/main/question.svg",
+    "search": "http://localhost:3030/icons/main/search.svg",
+    "sort": "http://localhost:3030/icons/main/sort.svg",
+    "star-filled": "http://localhost:3030/icons/main/star-filled.svg",
+    "star": "http://localhost:3030/icons/main/star.svg",
+    "support": "http://localhost:3030/icons/main/support.svg",
+    "telegram": "http://localhost:3030/icons/main/telegram.svg",
+    "user": "http://localhost:3030/icons/main/user.svg",
+    "users": "http://localhost:3030/icons/main/users.svg",
+    "viber": "http://localhost:3030/icons/main/viber.svg",
+    "whatsapp": "http://localhost:3030/icons/main/whatsapp.svg",
+    "bike": "http://localhost:3030/icons/special/bike.svg",
+    "bus": "http://localhost:3030/icons/special/bus.svg",
+    "car": "http://localhost:3030/icons/special/car.svg",
+    "minibus": "http://localhost:3030/icons/special/minibus.svg",
+    "minitruck": "http://localhost:3030/icons/special/minitruck.svg",
+    "other-technique": "http://localhost:3030/icons/special/other-technique.svg",
+    "refrigerant": "http://localhost:3030/icons/special/refrigerant.svg",
+    "technique": "http://localhost:3030/icons/special/technique.svg",
+    "tractor": "http://localhost:3030/icons/special/tractor.svg",
+    "trailer": "http://localhost:3030/icons/special/trailer.svg",
+    "truck": "http://localhost:3030/icons/special/truck.svg",
+    "logo": "http://localhost:3030/icons/others/logo.svg"
+  },
+  "images": {
+    "card-section-bg": "http://localhost:3030/images/card-section-bg.jpeg",
+    "card1": "http://localhost:3030/images/card_1.jpeg",
+    "card2": "http://localhost:3030/images/card_2.jpeg",
+    "card3": "http://localhost:3030/images/card_3.jpeg",
+    "testimonial1": "http://localhost:3030/images/testimonial_profile_1.png",
+    "testimonial2": "http://localhost:3030/images/testimonial_profile_2.png",
+    "testimonial3": "http://localhost:3030/images/testimonial_profile_3.png",
+    "testimonial4": "http://localhost:3030/images/testimonial_profile_4.png",
+    "24h": "http://localhost:3030/images/24h.png"
+  }
 }

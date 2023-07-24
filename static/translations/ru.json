@@ -6,7 +6,7 @@
   "whatsapp": "WhatsApp",
   "logare": "Войти",
   "inregistrare": "Регистрация",
-  "email": "Email",
+  "email": "Электронная почта",
   "parola": "Пароль",
   "confirma_parola": "Подтвердите пароль",
   "ai_uitat_parola": "Забыли пароль?",
@@ -113,5 +113,10 @@
   "facebook": "Facebook",
   "instagram": "Instagram",
   "linkedin": "Linkedin",
-  "youtube": "Youtube"
+  "youtube": "Youtube",
+  "loading": "Загрузка...",
+  "camp_obligatoriu": "Обязательное поле",
+  "email_nevalid": "Неверный адрес электронной почты",
+  "password_6_caractere": "Пароль должен содержать не менее 6 символов",
+  "numar_nevalid": "Неверный номер"
 }

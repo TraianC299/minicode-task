@@ -15,6 +15,8 @@ import RCAStep2 from '../components/home/forms/rca/Step2'
 import RCAStep3 from '../components/home/forms/rca/Step3'
 import RCAStep4 from '../components/home/forms/rca/Step4'
 import InsuranceType from '../types/Insurance.type'
+import InsuranceService from '../services/InsuranceService.service'
+import { useSnack } from './SnackProvider.context'
 
 interface InsuranceState {
     step: number,
@@ -61,6 +63,11 @@ export const useInsurance=():InsuranceState=>{
 
 
 export const InsuranceProvider = ({children}:InsuranceProviderProps) => {
+  const {
+    setSuccess,
+    setError,
+    setLoading,
+  } = useSnack()
     const {insurance} = useContent()
     const [step, setStep] = useState(0)
     const [showCost, setShowCost] = useState(false)
@@ -78,17 +85,36 @@ export const InsuranceProvider = ({children}:InsuranceProviderProps) => {
       },[step, screens,showCost])
 
 
+      const postInsurance = async()=>{
+        setLoading(true)
+        try{
+          const res = await InsuranceService.createInsurance(currentInstance)
+          console.log(res)
+          if(res.code === 200){
+
+            setSuccess('Comanda a fost plasata cu succes')
+          }else{
+            setError('A aparut o eroare')
+          }
+        }catch(e){
+          setError('A aparut o eroare')
+        }finally{
+          setLoading(false)
+        }
+      }
 
 
 
-      const onNextClick = useCallback(() => {
-        console.log()
+      const onNextClick = useCallback(async () => {
+        if(showCost){
+          await postInsurance()
+        }
         if(step < currentInstance.steps?.length - 1){
           setStep(step+1)
         }else{
           setShowCost(true)
         }
-      }, [step, screens])
+      }, [step, screens,showCost])
     
       const onBackClick = useCallback(() => {
         if(showCost){

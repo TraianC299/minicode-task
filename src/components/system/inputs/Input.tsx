@@ -13,6 +13,9 @@ width: 100%;
 >label{
   color: var(--black);
 }
+.error-text{
+  color: var(--danger, #D32F2F);
+}
 
 &.error{
   label{
@@ -106,7 +109,7 @@ const Input = ({
       onChange={(e)=>onChange(e.target.value)}
       className={`${error && 'error'}  ${className}`}
       {...props}></InputStyles>
-      {/* {error && <p className='text-danger small'>{error}</p>} */}
+      {error && <Input.Error>{error}</Input.Error>}
     </Input.Wrapper>
   )
 }
@@ -123,7 +126,13 @@ interface WrapperProps extends React.DetailedHTMLProps<React.InputHTMLAttributes
   children: React.ReactNode
   error?: boolean
 }
+
+
+interface ErrorProps extends React.DetailedHTMLProps<React.InputHTMLAttributes<HTMLParagraphElement>, HTMLParagraphElement> {
+  children: React.ReactNode
+}
 Input.MoreInfo = ({label}:{label:string}) => <div className='flex items-center justify-between w-full'><Input.Label >{label}</Input.Label><MoreInfo></MoreInfo></div>
 Input.Wrapper = ({children,error, ...props}:WrapperProps)=><ContainerStyles {...props} className={error ? 'error':''}>{children}</ContainerStyles>
 Input.Label = ({children, ...props}:LabelProps) => <LabelStyles {...props} className={`p ${props.className}`} >{children}</LabelStyles>
+Input.Error = ({children, ...props}:ErrorProps) => <p {...props} className={`small error-text`} >{children}</p>
 export default Input

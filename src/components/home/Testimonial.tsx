@@ -58,8 +58,12 @@ const Testimonial = ({name,image,content, rating=3}:Props) => {
         <TextContainerStyles>
             <p className='h5 font-bold'>{name}</p>
             <StarsContainerStyles className='items-center'>
-              {new Array(rating).fill(1).map((_) => <ColorImage color='orange' src={icons["star-filled"]}></ColorImage>)}
-              {new Array(5-rating).fill(1).map((_) => <ColorImage color='gray' src={icons.star}></ColorImage>)}
+              {new Array(rating).fill(1).map((_, i) => <ColorImage
+              key={i}
+               color='orange' src={icons["star-filled"]}></ColorImage>)}
+              {new Array(5-rating).fill(1).map((_, i) => <ColorImage
+                key={i}
+               color='gray' src={icons.star}></ColorImage>)}
               </StarsContainerStyles>
             <p className='small font-regular'>{content}</p>
         </TextContainerStyles>

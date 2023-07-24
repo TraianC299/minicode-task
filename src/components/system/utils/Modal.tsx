@@ -29,14 +29,15 @@ interface ModalProps{
 
 const Modal = ({children, visible, setVisible}:ModalProps) => {
   return (
-    <ModalStyles
-    onClick={(e) => {
-      if(e.target === e.currentTarget){
-        setVisible(false)
-      }
-    } }
-    className={`transition ${visible ? 'visible' : ''}`}
-    >{children}</ModalStyles>
+    
+      <ModalStyles
+      onClick={(e) => {
+        if(e.target === e.currentTarget){
+          setVisible(false)
+        }
+      } }
+      className={`transition ${visible ? 'visible' : ''}`}
+      >{children}</ModalStyles>
   )
 }
 

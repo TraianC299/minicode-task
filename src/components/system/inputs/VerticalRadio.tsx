@@ -8,6 +8,10 @@ display: flex;
 flex-direction: column;
 align-items: center;
 gap: 5px;
+>p{
+
+    text-align: center;
+}
 >.line{
     width: 2px;
     height: 6px;

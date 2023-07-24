@@ -6,6 +6,7 @@ import { useContent } from '../../../contexts/ContentProvider.context'
 import useLanguage from '../../../hooks/useLanguage'
 import { useTranslation } from 'react-i18next'
 import LANGUAGES from '../../../constants/LANGUAGES.constant'
+import React from 'react'
 
 
 const LeftSideContainer = styled.div`
@@ -58,42 +59,42 @@ gap: 8px;
 }
 `
 const LeftSection = () => {
-  const {t} = useTranslation()
-  const {onChangeLang, currentLang} = useLanguage()
-    const {icons} = useContent()
+  const { t } = useTranslation()
+  const { onChangeLang, currentLang } = useLanguage()
+  const { icons } = useContent()
   return (
     <LeftSideContainer>
-        <IconButton
+      <IconButton
         text={
           <LanguageContainer className='flex'>
             {
               LANGUAGES.map((lang, index) => (
-              <><p
-                className={currentLang === lang.code ? 'active' : ''}
-                onClick={() => onChangeLang(lang.code)}
-                >{lang.code.toUpperCase()}</p>
-                {index !== LANGUAGES.length - 1 && <div className='line'/>}
-                </>
-
+                <React.Fragment key={lang.code}>
+                  <p
+                    className={currentLang === lang.code ? 'active' : ''}
+                    onClick={() => onChangeLang(lang.code)}
+                  >{lang.code.toUpperCase()}</p>
+                  {index !== LANGUAGES.length - 1 && <div className='line' />}
+                </React.Fragment>
               ))
             }
           </LanguageContainer>
         }
-          icon={<Icon color="burgundy" src={icons.lang}/>}/>
-          <VerticalLine/>
-        <IconButton 
-          className='phone'
-          text={t('suna')}
-          icon={<Icon color="burgundy" src={icons.phone}/>}/>
-          <VerticalLine/>
-            <IconButton
-            text={t('messenger')}
-            icon={<Icon color="burgundy" src={icons.messenger}/>}/>
-            <HorizontalLine/>
-            <IconButton
-            text={t('whatsapp')}
-            icon={<Icon color="burgundy" src={icons.whatsapp}/>}/>
-      </LeftSideContainer>
+        icon={<Icon color="burgundy" src={icons.lang} />} />
+      <VerticalLine />
+      <IconButton
+        className='phone'
+        text={t('suna')}
+        icon={<Icon color="burgundy" src={icons.phone} />} />
+      <VerticalLine />
+      <IconButton
+        text={t('messenger')}
+        icon={<Icon color="burgundy" src={icons.messenger} />} />
+      <HorizontalLine />
+      <IconButton
+        text={t('whatsapp')}
+        icon={<Icon color="burgundy" src={icons.whatsapp} />} />
+    </LeftSideContainer>
   )
 }
 

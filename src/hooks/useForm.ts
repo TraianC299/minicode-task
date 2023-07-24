@@ -1,12 +1,13 @@
 import { useState } from "react";
+import { useTranslation } from "react-i18next";
 
 const useForm = (form: any, setForm:any, vlidationRules:any) => {
-
+    const {t} = useTranslation();
     const [errors, setErrors] = useState<any>({});
     
     const validate = (name: string, value: string) => {
         if(!vlidationRules[name]) return;
-        const error = validateField(vlidationRules[name], value);
+        const error = t(validateField(vlidationRules[name], value));
         setErrors((prevErrors:any) => ({ ...prevErrors, [name]: error }));
     };
 
@@ -14,7 +15,7 @@ const useForm = (form: any, setForm:any, vlidationRules:any) => {
         
         let valid = true;
         names.forEach((name) => {
-            const error = validateField(vlidationRules[name], form[name]);
+            const error = t(validateField(vlidationRules[name], form[name]));
             setErrors((prevErrors:any) => ({ ...prevErrors, [name]: error }));
             if (error) valid = false;
         });
@@ -31,7 +32,7 @@ const useForm = (form: any, setForm:any, vlidationRules:any) => {
     const validateForm = () => {
         let valid = true;
         Object.keys(form).forEach((key) => {
-            const error = validateField(vlidationRules[key], form[key]);
+            const error = t(validateField(vlidationRules[key], form[key]));
             setErrors((prevErrors:any) => ({ ...prevErrors, [key]: error }));
             if (error) valid = false;
         });
@@ -71,52 +72,52 @@ export const validateField = (name: string, value: string | string[]) => {
 
 export const validateEmail = (email: string) => {
     if (!email.includes("@")) {
-        return "Email is invalid";
+        return 'email_nevalid';
     }
     return "";
 }
 
 export const validatePassword = (password: string) => {
     if (password.length < 6) {
-        return "Password must be at least 6 characters";
+        return 'password_6_caractere';
     }
     return "";
 }
 
 export const validateConfirmPassword = (confirmPassword: string) => {
     if (confirmPassword.length < 6) {
-        return "Password must be at least 6 characters";
+        return 'password_6_caractere';
     }
     return "";
 }
 
 export const validateEmptyArray = (array: any[]) => {
     if (array.length === 0) {
-        return "Camp obligator";
+        return 'camp_obligatoriu';
     }
     return "";
 }
 
 export const validateEmpty = (value: string) => {
     if (!value) {
-        return "Camp obligator";
+        return 'camp_obligatoriu';
     }
     return "";
 }
 
 export const validateRadio = (value: string) => {
     if (value===null) {
-        return "Camp obligator";
+        return 'camp_obligatoriu';
     }
     return "";
 }
 
 export const validateNumber = (value: string) => {
     if (!value) {
-        return "Camp obligator";
+        return 'camp_obligatoriu';
     }
     if (isNaN(Number(value))) {
-        return "Campul trebuie sa fie numar";
+        return 'numar_nevalid';
     }
     return "";
 }

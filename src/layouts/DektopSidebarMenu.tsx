@@ -4,6 +4,7 @@ import ColorImage from '../components/system/utils/ColorImage'
 import useLanguage from '../hooks/useLanguage'
 import { useTranslation } from 'react-i18next'
 import LANGUAGES from '../constants/LANGUAGES.constant'
+import React from 'react'
 
 
 const Background = styled.div`
@@ -181,22 +182,28 @@ const DektopSidebarMenu = ({ visible, setVisible }: DektopSidebarMenuProps) => {
                     <h2>{t("meniu")}</h2>
                 </HeaderStyles>
                 <div className='flex flex-column flex-1 gap-4'>
-                    {menuItems.map(el => <LinkStyles className='flex justify-start items-center'>
+                    {menuItems.map(el => <LinkStyles
+                        key={el.title}
+                        className='flex justify-start items-center'>
                         <ColorImage color='burgundy' src={icons[el.icon]} />
                         <h5 className='h5'>{t(el.title)}</h5>
                     </LinkStyles>)}
                 </div>
                 <SmallLinkStyles>
                     <ColorImage color='burgundy' src={icons['lang']} />
-                    {LANGUAGES.map((el, index) => <><p
+                    {LANGUAGES.map((el, index) => <React.Fragment
+                        key={el.code}>
+                        <p
                         onClick={() => onChangeLang(el.code)}
                         className={`p ${currentLang === el.code ? 'active' : ''}`}>{el.code.toUpperCase()}</p>
-                            {index !== LANGUAGES.length - 1 && <div className='line'/>}
-                        </>)
-                        }
+                        {index !== LANGUAGES.length - 1 && <div className='line' />}
+                    </React.Fragment>)
+                    }
                 </SmallLinkStyles>
                 <div className='flex flex-column gap-2'>
-                    {bottomMenuItens.map(el => <SmallLinkStyles className='flex justify-start items-center'>
+                    {bottomMenuItens.map(el => <SmallLinkStyles
+                        key={el.title}
+                        className='flex justify-start items-center'>
                         <ColorImage color='black' src={icons[el.icon]} />
                         <p className='p'>{t(el.title)}</p>
                     </SmallLinkStyles>)}

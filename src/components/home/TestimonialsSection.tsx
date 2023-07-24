@@ -68,7 +68,7 @@ cursor: pointer;
 const TestimonialsSection = () => {
   const {tDynamic} = useLanguage()
   const {t} = useTranslation()
-  const [activeTestimonial, setActiveTestimonial] = useState(0)
+  const [activeSlide, setActiveSlide] = useState(0)
   const {testimonials} = useContent()
  
 
@@ -79,21 +79,24 @@ const TestimonialsSection = () => {
             <SmoothFadeInOut>
               <TestimonialContainerStyles>
                   {testimonials.slice(
-                    activeTestimonial * 4,
-                    activeTestimonial * 4 + 4
-                  ).map((testimonial, index) => <Testimonial 
-                  key={index} 
+                    activeSlide * 4,
+                    activeSlide * 4 + 4
+                  ).map((testimonial) => <Testimonial 
+                  key={testimonial.id} 
                   {...testimonial}
                   content={tDynamic(testimonial.content)}
                   />)}
               </TestimonialContainerStyles>
             </SmoothFadeInOut>
             <PointsContainerStyles>
-              {new Array(testimonials.length/4).fill(0).map(( index) => <PointStyles
-              onClick={() => setActiveTestimonial(index)}
-               key={index} 
-               className={`transition ${index === activeTestimonial ? 'active' : ''}`}/>
-               )}
+              
+               {
+                  new Array(Math.ceil(testimonials.length/4)).fill(0).map((_, index) => <PointStyles
+                  onClick={() => setActiveSlide(index)}
+                  key={index}
+                  className={`transition ${index === activeSlide ? 'active' : ''}`}/>
+                  )
+               }
             </PointsContainerStyles>
         </ContentStyles>
     </ContainerStyles>

@@ -76,32 +76,28 @@ const PhoneNav = () => {
              <img height={20} src={icons.logo}></img>
         </div>
  
-        <AuthButtonsContainer>
-            <IconButton
-            onClick={() => setOpenLogInModal(true)}
-            icon={<ColorImage color='burgundy' height={32} width={32} src={icons['users']} alt=""></ColorImage>}
-            text={t("inregistrare")}
-            >
-            </IconButton>
-        
-            <IconButton
+        <IconButton
             onClick={() => setOpenSignUpModal(true)}
             icon={<ColorImage color='burgundy' height={32} width={32} src={icons['file-reg']} alt=""></ColorImage>}
             text={t("inregistrare")}
             />
-        
-        </AuthButtonsContainer>
         <Modal
             visible={openLogInModal}
             setVisible={setOpenLogInModal}
             >
-                <LogInModal/>
+                 <LogInModal
+                closeModal={() => setOpenLogInModal(false)}
+                openSignUpModal={() => setOpenSignUpModal(true)}
+                />
             </Modal>
             <Modal
             visible={openSignUpModal}
             setVisible={setOpenSignUpModal}
             >
-                <SignUpModal/>
+                <SignUpModal
+                closeModal={() => setOpenSignUpModal(false)}
+                openLogInModal={() => setOpenLogInModal(true)}
+                />
             </Modal>
     </ContainerStyles>
   )
