@@ -1,7 +1,8 @@
 import styled from 'styled-components'
 import Input from '../../../system/inputs/Input'
 import VerticalRadio from '../../../system/inputs/VerticalRadio'
-import { useInsurance } from '../../../../contexts/InsuranceProvider.context'
+import { useInsuranceForm } from '../../../../contexts/InsuranceFormProvider.context'
+import { useEffect } from 'react'
 
 
 
@@ -79,27 +80,33 @@ const anulProduceriiOptions = [
     }
 ]
 const Step2 = () => {
-    const {form, handleChange} = useInsurance()
+    const {form, handleChange,errors,setCurrentFields} = useInsuranceForm()
   
+    useEffect(() => {
+        setCurrentFields(['model', 'marca', 'anProducere'])
+    }, [])
     return (
         <ContainerStyles className='w-full'>
             <InputsContainerStyles className='w-full'>
                 <Input 
+                error={errors.model}
                 value={form.model}
+                placeholder='Introduceți modelul'
                 onChange={(value)=>handleChange(value,'model')}
                 label='Model' className='w-full'/>
                 <Input 
+                error={errors.marca}
                 value={form.marca}
                 onChange={(value)=>handleChange(value,'marca')}
                 label='Marca' 
+                placeholder='Introduceți marca'
                 className='w-full'/>
             </InputsContainerStyles>
-            <Input.Wrapper className='gap-2'>
-                <Input.Label className='small'>Anul producerii</Input.Label>
+            <Input.Wrapper error={errors.anProducere} className='gap-2'>
+                <Input.Label >Anul producerii</Input.Label>
                 <RadioContainerStyles className='flex flex gap-1'>
                     {anulProduceriiOptions.map((option) => (
                         <VerticalRadio
-
                             key={option.id}
                             title={option.title}
                             value={form.anProducere === option.id}

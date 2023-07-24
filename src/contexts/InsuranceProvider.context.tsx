@@ -1,4 +1,4 @@
-import React, { ReactNode, useContext, useEffect, useMemo, useState} from 'react'
+import React, { ReactNode, useCallback, useContext, useMemo, useState} from 'react'
 import useDidMountEffect from '../hooks/useDidMountEffect'
 import { useContent } from './ContentProvider.context'
 import CarteVerdeStep1 from '../components/home/forms/carte-verde/Step1'
@@ -14,37 +14,20 @@ import RCAStep1 from '../components/home/forms/rca/Step1'
 import RCAStep2 from '../components/home/forms/rca/Step2'
 import RCAStep3 from '../components/home/forms/rca/Step3'
 import RCAStep4 from '../components/home/forms/rca/Step4'
-import useForm from '../hooks/useForm'
-const initialState = {
-    form: {},
-    setForm: ()=>{},
-    step: 0,
-    setStep: ()=>{},
-    showCost: false,
-    setShowCost: ()=>{},
-    currentInstance: {},
-    currentScreen: {},
-    selectedInsuranceType: '3',
-    setSelectedInsuranceType: ()=>{},
-    handleChange: ()=>{}
-
-
-}
-
+import InsuranceType from '../types/Insurance.type'
 
 interface InsuranceState {
-    form: any,
-    setForm: (form: any)=>void,
     step: number,
     setStep: (step: number)=>void,
     showCost: boolean,
     setShowCost: (showCost: boolean)=>void,
-    currentInstance: any,
-    currentScreen: any,
+    currentInstance: InsuranceType  
+    screen: ReactNode,
     selectedInsuranceType: string,
-    setSelectedInsuranceType: (selectedInsuranceType: string)=>void,
-    handleChange: (value:any, key:string)=>{}
-
+    setSelectedInsuranceType: React.Dispatch<React.SetStateAction<string>>,
+    onNextClick: ()=>void,
+    onBackClick: ()=>void,
+    nextButtonTitle: string
 }
 
 interface InsuranceProviderProps {
@@ -52,137 +35,88 @@ interface InsuranceProviderProps {
 }
 
 
-const rcaForm = {
-    automobilImatriculat:null,
-    persoana: null,
-    domiciliu: '',
-    vehicul: null,
-    nrLocuri: null,
-    nrPersAdmise: null,
-    stagiu: null,
-    pensionar: null,
-    rcaAsigurat: null,
-    asigRemorca: null,
-  }
-  
-  
-  const cascoForm = {
-    vehicul:null,
-    model: '',
-    marca: '',
-    anProducere: null,
-    valoareaPePiata: '',
-    teritoriulDeAcoperire: null,
-    fransiza: null,
-  }
-  
-  const carteVerdeForm = {
-    vehicul: null,
-    zonaDeDeplasare: [],
-    valabilitateaPolitei: null,
-  }
+
+
   const screens = [
     {
-      title:"Carte Verde",
       id:"1",
-      form: carteVerdeForm,
-      screens: [
-        {
-          title: "Alege tipul autovehiculului",
-          screen: <CarteVerdeStep1/>
-        },
-        {
-          title: "Zona de deplasare",
-          screen: <CarteVerdeStep2/>
-        }
-  
-      ]
+      screens: [<CarteVerdeStep1/>, <CarteVerdeStep2/>]
     },
     {
-      title:'RCA',
       id:'2',
-      form: rcaForm,
-      screens: [
-        {
-          title: "Alege tipul autovehiculului",
-          screen: <RCAStep1/>
-        },
-        {
-          title: "Alege marca",
-          screen: <RCAStep2/>
-        },
-        {
-          title: 'Numarul de locuri',
-          screen: <RCAStep3/>
-        },
-        {
-          title: 'Numarul de locuri',
-          screen: <RCAStep4/>
-        }
-      ]
+      screens: [<RCAStep1/>, <RCAStep2/>, <RCAStep3/>, <RCAStep4/>]
     },
     {
-      title:'Casco',
       id:'3',
-      form: cascoForm,
-      screens: [
-        {
-          title: "Alege tipul autovehiculului",
-          screen: <CascoStep1/>
-        },
-        {
-          title: "Alege marca",
-          screen: <CascoStep2/>
-        },
-        {
-          title: "Alege valoarea pe piață",
-          screen: <CascoStep3/>
-        }
-  
-  
-      ]
+      screens: [<CascoStep1/>, <CascoStep2/>, <CascoStep3/>]
     }
   ]
 
 
-const ContentContext = React.createContext<InsuranceState>(initialState)
+const ContentContext = React.createContext<InsuranceState | null>(null)
 export const useInsurance=():InsuranceState=>{
-        return useContext(ContentContext)
+        return useContext(ContentContext) as InsuranceState
     }
 
 
 
 export const InsuranceProvider = ({children}:InsuranceProviderProps) => {
-    const { insurance} = useContent()
-
-    const [form, setForm] = useState({})
-    const {handleChange} = useForm(form, setForm, {})
+    const {insurance} = useContent()
     const [step, setStep] = useState(0)
     const [showCost, setShowCost] = useState(false)
-    const [selectedInsuranceType, setSelectedInsuranceType] = useState('3' as string)
-    const currentInstance = useMemo(()=>insurance.find(type => type.id === selectedInsuranceType),[selectedInsuranceType])
-    let currentScreen = useMemo(()=>screens.find(type => type.id === selectedInsuranceType), [selectedInsuranceType])
-    useDidMountEffect(()=>{
+    const [selectedInsuranceType, setSelectedInsuranceType] = useState<string>('3')
+    const currentInstance = useMemo(()=>insurance.find(type => type.id === selectedInsuranceType),[selectedInsuranceType]) || insurance[0]
+    const currentScreen = useMemo(()=>screens.find(type => type.id === selectedInsuranceType), [selectedInsuranceType])
+    const nextButtonTitle = useMemo(()=>{
+      if(showCost){
+        return 'comanda_online'
+      }else if(step === screens?.length - 1){
+          return 'vezi_costul'
+        }else{
+          return 'inainte'
+        }
+      },[step, screens,showCost])
+
+
+
+
+
+      const onNextClick = useCallback(() => {
+        console.log()
+        if(step < currentInstance.steps?.length - 1){
+          setStep(step+1)
+        }else{
+          setShowCost(true)
+        }
+      }, [step, screens])
+    
+      const onBackClick = useCallback(() => {
+        if(showCost){
+          setShowCost(false)
+        }else if(step > 0){
+          setStep(step-1)
+        }
+      }, [step, showCost])
+
+
+      useDidMountEffect(()=>{
         setStep(0)
         setShowCost(false)
-        setForm(currentScreen?.form || {})
-      },[selectedInsuranceType])
-    
-
+    },[selectedInsuranceType])
 
     
-    let value={
+    const value={
         showCost,
         setShowCost,
-        form, 
-        setForm,
         step,
         setStep,
         currentInstance,
-        currentScreen,
+        screen: currentScreen?.screens[step],
         setSelectedInsuranceType,
         selectedInsuranceType,
-        handleChange
+        onNextClick,
+        onBackClick,
+        nextButtonTitle
     }
 
 

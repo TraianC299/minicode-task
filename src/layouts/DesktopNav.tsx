@@ -23,7 +23,7 @@ height: 5rem;
 background: var(--white, #FFF);
 z-index: 9999;
 box-shadow: 0px 5px 15px 2px rgba(27, 25, 24, 0.05);
-@media ${MEDIAQUERIES.MOBILE}{
+@media (max-width: 768px){
     display: none;
 }
 `
@@ -109,14 +109,14 @@ const DesktopNav = () => {
             <IconButton
             onClick={() => setOpenLogInModal(true)}
             icon={<ColorImage color='burgundy' height={32} width={32} src={icons['users']} alt=""></ColorImage>}
-            text='Logare'
+            text={t("logare")}
             >
             </IconButton>
         
             <IconButton
             onClick={() => setOpenSignUpModal(true)}
             icon={<ColorImage color='burgundy' height={32} width={32} src={icons['file-reg']} alt=""></ColorImage>}
-            text='Înregistrare'
+            text={t("inregistrare")}
             />
         
         </AuthButtonsContainer>

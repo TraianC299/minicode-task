@@ -13,6 +13,19 @@ width: 100%;
 >label{
   color: var(--black);
 }
+
+&.error{
+  label{
+    color: var(--danger, #D32F2F);
+  }
+  >input, .input{
+    border-color: var(--danger);
+  &::placeholder{
+    color: var(--danger);
+  }
+  }
+
+}
 `
 export const InputStyles = styled.input`
 width: 100%;
@@ -35,11 +48,12 @@ align-items: center;
 border: 1px solid var(--dark-gray, #42403F);
 background: ${COLORS.WHITE};
 }
-.small{
+&.small{
     border-radius: 5px;
 border: 1px solid ${COLORS.GRAY};
 background: ${COLORS.WHITE};
 }
+
 
 &::placeholder{
   color: var(--dark-gray, #42403F);
@@ -49,40 +63,67 @@ font-weight: 200;
 line-height: 27px; /* 150% */
 }
 
+
 &:hover{
   border-color: var(--burgundy, #A40731);
   &::placeholder{
     color: var(--burgundy, #A40731);
   }
 }
+
+
+
 `
 
-interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {
+const LabelStyles = styled.label`
+&.error{
+  color: var(--danger, #D32F2F);
+}
+`
+
+interface InputProps extends Omit<React.InputHTMLAttributes<HTMLInputElement>, "onChange"> {
     value: string,
     label?: string,
     moreInfo?: boolean,
-    onChange: (value: string) => void
+    onChange: (value: string) => void,
+    error?: boolean
 }
 const Input = ({
     value, 
     label,
     onChange,
     moreInfo,
+    className,
+    error,
     ...props
 }:InputProps) => {
   return (
-    <Input.Wrapper>
-      {!moreInfo && label && <Input.Label className='p' htmlFor={props.id}>{label}</Input.Label>}
-      {moreInfo && label && <Input.MoreInfo label={label}></Input.MoreInfo>}
+    <Input.Wrapper error={error}>
+      {!moreInfo && label && <Input.Label  htmlFor={props.id}>{label}</Input.Label>}
+      {moreInfo && label && <Input.MoreInfo  label={label}></Input.MoreInfo>}
       <InputStyles
       value={value}
       onChange={(e)=>onChange(e.target.value)}
+      className={`${error && 'error'}  ${className}`}
       {...props}></InputStyles>
+      {/* {error && <p className='text-danger small'>{error}</p>} */}
     </Input.Wrapper>
   )
 }
 
-Input.MoreInfo = ({label}:{label:string}) => <div className='flex items-center justify-between w-full'><Input.Label>{label}</Input.Label><MoreInfo></MoreInfo></div>
-Input.Wrapper = ({children, ...props}:React.InputHTMLAttributes<HTMLDivElement>)=><ContainerStyles {...props}>{children}</ContainerStyles>
-Input.Label = ({children}:React.DetailedHTMLProps<React.LabelHTMLAttributes<HTMLLabelElement>, HTMLLabelElement>) => <label className='p' >{children}</label>
+
+
+
+interface LabelProps extends React.DetailedHTMLProps<React.LabelHTMLAttributes<HTMLLabelElement>, HTMLLabelElement> {
+  children: React.ReactNode,
+  className?: string
+}
+
+interface WrapperProps extends React.DetailedHTMLProps<React.InputHTMLAttributes<HTMLDivElement>, HTMLDivElement> {
+  children: React.ReactNode
+  error?: boolean
+}
+Input.MoreInfo = ({label}:{label:string}) => <div className='flex items-center justify-between w-full'><Input.Label >{label}</Input.Label><MoreInfo></MoreInfo></div>
+Input.Wrapper = ({children,error, ...props}:WrapperProps)=><ContainerStyles {...props} className={error ? 'error':''}>{children}</ContainerStyles>
+Input.Label = ({children, ...props}:LabelProps) => <LabelStyles {...props} className={`p ${props.className}`} >{children}</LabelStyles>
 export default Input

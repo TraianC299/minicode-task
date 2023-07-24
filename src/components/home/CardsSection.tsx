@@ -78,7 +78,12 @@ const CardsSection = () => {
 </Button>
             </div>
             <CardsContainer className='flex items-center justify-center gap-4'>
-                {cards.map((card) => <Card key={card.id} {...card}/>)}
+                {cards.map((card) => <Card 
+                key={card.id} 
+                {...card}
+                title={t(card.title)}
+                subtitle={t(card.subtitle)}
+                />)}
             </CardsContainer>
         </ContentContainer>
 

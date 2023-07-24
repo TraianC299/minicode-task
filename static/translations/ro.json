@@ -49,7 +49,16 @@
     "locuinte_imobile":"Locuințe (imobile)",
 
     "obiectul_asigurarii":"Obiectul asigurării",
-    "riscuri_si_obligatiuni":"Riscuri și obligațiuni"
+    "riscuri_si_obligatiuni":"Riscuri și obligațiuni",
+
+    "alege_tipul_autovehiculului":"Alege tipul autovehiculului",
+    "zona_de_deplasare":"Zona de deplasare",
+    "alege_marca":"Alege marca",
+    "numarul_de_locuri":"Numărul de locuri",
+    "alege_valoarea_pe_piata":"Alege valoarea pe piață",
+    "card_title": "Asigură-ți locuința atunci când pleci în vacanță!",
+    "card_subtitle":"Asigură-ți locuința atunci când pleci în vacanță!",
+    "vezi_costul":"Vezi costul"
 
 
 }

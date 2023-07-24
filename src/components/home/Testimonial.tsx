@@ -43,7 +43,14 @@ flex-direction: column;
 gap: 15px;
 
 `
-const Testimonial = ({name,image,content, rating=3}:TestimonialType) => {
+
+interface Props extends Omit<TestimonialType, 'content'>{
+  content: string
+}
+
+
+
+const Testimonial = ({name,image,content, rating=3}:Props) => {
     const {icons} = useContent()
   return (
     <ContainerStyles className='transition'>

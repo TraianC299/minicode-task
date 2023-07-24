@@ -1,6 +1,7 @@
 import Input from '../../../system/inputs/Input'
 import Checkbox from '../../../system/inputs/Checkbox'
-import { useInsurance } from '../../../../contexts/InsuranceProvider.context'
+import { useInsuranceForm } from '../../../../contexts/InsuranceFormProvider.context'
+import { useEffect } from 'react'
 
 
 
@@ -34,18 +35,23 @@ const fransizaOptions = [
 
 
 const Step3 = () => {
-    const {form, handleChange} = useInsurance()
+    const {form, handleChange,setCurrentFields, errors} = useInsuranceForm()
 
-
+    useEffect(() => {
+        setCurrentFields(['valoareaPePiata', 'teritoriulDeAcoperire', 'fransiza'])
+    }, [])
     return (
         <div className='w-full flex flex-column gap-8'>
             <Input 
+            error={errors.valoareaPePiata}
             type='number'
             value={form.valoareaPePiata}
             onChange={(value) => handleChange(value, 'valoareaPePiata')}
             label='Valoarea de piață ( € )' />
-            <Input.Wrapper className='gap-2'>
-                <Input.Label>Teritoriul de acoperire CASCO</Input.Label>
+            <Input.Wrapper error={errors.teritoriulDeAcoperire } className='gap-2'>
+                <Input.Label
+                
+                >Teritoriul de acoperire CASCO</Input.Label>
                 <div className='flex gap-8'>
                     {teritoriulDeAcoperireOptions.map((option) => (
                         <Checkbox
@@ -57,8 +63,10 @@ const Step3 = () => {
                     ))}
                 </div>
             </Input.Wrapper>
-            <Input.Wrapper className='gap-2'>
-            <Input.Label>Franșiza</Input.Label>
+            <Input.Wrapper error={errors.fransiza} className='gap-2'>
+            <Input.Label
+            
+            >Franșiza</Input.Label>
                 <div className='flex gap-8'>
                     {fransizaOptions.map((option) => (
                         <Checkbox

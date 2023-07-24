@@ -1,9 +1,9 @@
 import React, { RefObject } from 'react'
 
 
-const useClickOutside = (ref:RefObject<HTMLElement>, callback:Function) => {
+const useClickOutside = (ref:RefObject<HTMLElement>, callback:()=>void) => {
     const handleClick = (e:MouseEvent) => {
-      if (ref.current && !ref.current.contains(e.target)) {
+      if (ref.current && !ref.current.contains(e.target as Node)) {
         callback();
       }
     };

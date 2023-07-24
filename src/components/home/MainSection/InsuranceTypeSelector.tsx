@@ -9,12 +9,12 @@ import { useTranslation } from 'react-i18next'
 
 
 const ContainerStyles = styled.div`
-display: flex;
+display: grid;
 padding: 1rem;
 gap: 30px;
-width: 100%;
 flex-direction: column;
 align-items: flex-start;
+width: 100%;
 border-radius: 7px;
 background: var(--gradient-2, linear-gradient(61deg, #A40731 0%, #830B3A 40.06%, #002359 100%));
 /* Standard gray shadow */
@@ -32,6 +32,7 @@ box-shadow: 0px 5px 15px 2px rgba(27, 25, 24, 0.05);
 }
 `
 const InsuranceTypeStyles = styled.button`
+align-self: stretch;
 display: flex;
 width: fit-content;
 height: 45px;
@@ -65,7 +66,7 @@ width: max-content;
 const InsuranceTypeContainerStyles = styled.div`
 display: flex;
 justify-content: flex-start;
-width: 100%;
+/* width: 100%; */
 overflow-x: scroll;
 gap: 10px;
 @media ${MEDIAQUERIES.LAPTOP}{

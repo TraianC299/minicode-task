@@ -1,6 +1,4 @@
-import React from 'react'
 import { PatternFormat } from 'react-number-format';
-import Input from './Input';
 import styled from 'styled-components';
 import COLORS from '../../../constants/COLORS.constant';
  
@@ -47,10 +45,32 @@ line-height: 27px; /* 150% */
     color: var(--burgundy, #A40731);
   }
 }
+
+
+&.error{
+  border-color: var(--danger, #D32F2F);
+  &::placeholder{
+    color: var(--danger, #D32F2F);
+  }
+}
 `
-const PhoneNumberInput = () => {
+
+interface PhoneNumberInputProps {
+  value: string,
+  onChange: (value: string) => void,
+  error?: boolean
+}
+
+const PhoneNumberInput = ({
+  value,
+  onChange,
+  error
+}:PhoneNumberInputProps) => {
   return (
   <InputStyles 
+    className={error ? 'error' : ''}
+    value={value}
+    onChange={(e)=>onChange(e.target.value)}
     style={{
       fontWeight: 300,
       fontFamily: 'PT-Root-UI',

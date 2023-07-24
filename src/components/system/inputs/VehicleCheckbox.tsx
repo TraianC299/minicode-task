@@ -26,6 +26,10 @@ cursor: pointer;
         filter: ${FILTERS.BURGUNDY};
     }
 }
+
+&.error{
+    border: 1px solid var(--danger);
+}
 &.selected{
     border: 1px solid var(--burgundy, #A40731);
     >img{
@@ -59,16 +63,18 @@ interface VehicleCheckboxProps {
     iconSrc: string,
     title: string,
     value: boolean,
-    onChange: (value: boolean) => void
+    onChange: (value: boolean) => void,
+    error?: boolean
 }
 const VehicleCheckbox = ({
-    iconSrc, title, value, onChange
+    iconSrc, title, value, onChange, error
 }:VehicleCheckboxProps) => {
     
   return (
     <ContainerStyles
+    
     onClick={()=>onChange(!value)}
-        className={value ? 'selected' : ''}
+        className={`${error && 'error'} ${value ? 'selected' : ''}`}
     >
         <img src={iconSrc}></img>
         <p className='small'>{title}</p>

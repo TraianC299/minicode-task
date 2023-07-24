@@ -47,5 +47,13 @@
   "bunuri": "Товары",
   "locuinte_imobile": "Жилье",
   "obiectul_asigurarii":"Объект страхования",
-  "riscuri_si_obligatiuni":"Риски и обязательства"
+  "riscuri_si_obligatiuni":"Риски и обязательства",
+  "alege_tipul_autovehiculului": "Выберите тип автомобиля",
+  "zona_de_deplasare": "Зона движения",
+  "alege_marca": "Выберите марку",
+  "numarul_de_locuri": "Количество мест",
+  "alege_valoarea_pe_piata": "Выберите стоимость на рынке",
+  "card_title": "Страхование автомобиля",
+  "card_subtitle":"Получите предложение по страхованию автомобиля",
+  "vezi_costul":"Посмотреть стоимость"
 }

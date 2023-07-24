@@ -2,22 +2,22 @@
     "cards": [
         {
             "id": "1",
-            "title": "Asigură-ți locuința atunci când pleci în vacanță!",
-            "subtitle": "Asigură-ți locuința atunci când pleci în vacanță...",
+            "title": "card_title",
+            "subtitle": "card_subtitle",
             "slug": "asigura-ti-locuinta-atunci-cand-pleci-in-vacanta",
             "image": "http://localhost:3030/images/card_1.png"
         },
         {
             "id": "2",
-            "title": "Asigură-ți locuința atunci când pleci în vacanță!",
-            "subtitle": "Asigură-ți locuința atunci când pleci în vacanță...",
+            "title": "card_title",
+            "subtitle": "card_subtitle",
             "slug": "asigura-ti-locuinta-atunci-cand-pleci-in-vacanta",
             "image": "http://localhost:3030/images/card_2.png"
         },
         {
             "id": "3",
-            "title": "Asigură-ți locuința atunci când pleci în vacanță!",
-            "subtitle": "Asigură-ți locuința atunci când pleci în vacanță...",
+            "title": "card_title",
+            "subtitle": "card_subtitle",
             "slug": "asigura-ti-locuinta-atunci-cand-pleci-in-vacanta",
             "image": "http://localhost:3030/images/card_3.png"
         }
@@ -79,84 +79,120 @@
             "id": "1",
             "image": "http://localhost:3030/images/testimonial_profile_1.png",
             "name": "Vasile Moraru",
-            "content": "Am fost implicat recent intr-un accident rutier. Am fost despagubit in timp. Personal foarte amabil. Recomand cu incredere!",
+            "content": {
+                "ro": "Am fost implicat recent intr-un accident rutier. Am fost despagubit in timp. Personal foarte amabil. Recomand cu incredere!",
+                "ru": "Я недавно попал в дорожно-транспортное происшествие. Я был компенсирован во время. Очень дружелюбный персонал. Я рекомендую с уверенностью!"
+            },
             "rating": 4
         },
         {
             "id": "2",
             "image": "http://localhost:3030/images/testimonial_profile_2.png",
             "name": "Valeria Ivanov",
-            "content": "Experiență excelentă cu servicii rapide și suport de calitate. Îmi oferă liniștea de care am nevoie.",
+            "content": {
+                "ro": "Experiență excelentă cu servicii rapide și suport de calitate. Îmi oferă liniștea de care am nevoie.",
+                "ru": "Отличный опыт с быстрыми услугами и качественной поддержкой. Он дает мне спокойствие, которое мне нужно."
+            },
             "rating": 4
         },
         {
             "id": "3",
             "image": "http://localhost:3030/images/testimonial_profile_3.png",
             "name": "Vasile Romanov",
-            "content": "Echipa lor profesionistă m-a ajutat cu promptitudine în momente critice. Recomand cu căldură asigurările lor.",
+            "content": {
+                "ro": "Echipa lor profesionistă m-a ajutat cu promptitudine în momente critice. Recomand cu căldură asigurările lor.",
+                "ru": "Их профессиональная команда оперативно помогла мне в критические моменты. Я искренне рекомендую их страховку."
+            },
             "rating": 5
         },
         {
             "id": "4",
             "image": "http://localhost:3030/images/testimonial_profile_4.png",
             "name": "Vasile Romanov",
-            "content": "Asistență rapidă și sprijin în orice problemă. Un partener de încredere în orice situație neașteptată.",
+            "content": {
+                "ro": "Asistență rapidă și sprijin în orice problemă. Un partener de încredere în orice situație neașteptată.",
+                "ru": "Быстрая помощь и поддержка в любой проблеме. Надежный партнер в любой непредвиденной ситуации."
+            },
             "rating": 5
         },
         {
             "id": "5",
             "image": "http://localhost:3030/images/testimonial_profile_5.png",
             "name": "Cody Fisher",
-            "content": "Am fost implicat recent intr-un accident rutier. Am fost despagubit in timp. Personal foarte amabil. Recomand cu incredere!",
+            "content": {
+                "ro": "Am fost implicat recent intr-un accident rutier. Am fost despagubit in timp. Personal foarte amabil. Recomand cu incredere!",
+                "ru": "Я недавно попал в дорожно-транспортное происшествие. Я был компенсирован во время. Очень дружелюбный персонал. Я рекомендую с уверенностью!"
+            },
             "rating": 4
         },
         {
             "id": "6",
             "image": "http://localhost:3030/images/testimonial_profile_6.png",
             "name": "Theresa Webb",
-            "content": "consectetur adipiscing elit duis tristique sollicitudin nibh sit amet commodo nulla facilisi nullam vehicula ipsum a arcu cursus vitae congue",
+            "content": {
+                "ro": "Consectetur adipiscing elit duis tristique sollicitudin nibh sit amet commodo nulla facilisi nullam vehicula ipsum a arcu cursus vitae congue",
+                "ru": "Их профессиональная команда оперативно помогла мне в критические моменты. Я искренне рекомендую их страховку."
+            },
             "rating": 5
         },
         {
             "id": "7",
             "image": "http://localhost:3030/images/testimonial_profile_7.png",
             "name": "Darlene Robertson",
-            "content": "Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet.",
+            "content": {
+                "ro": "Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet.",
+                "ru": "Быстрая помощь и поддержка в любой проблеме. Надежный партнер в любой непредвиденной ситуации."
+            },
             "rating": 4
         },
         {
             "id": "8",
             "image": "http://localhost:3030/images/testimonial_profile_8.png",
             "name": "Albert Flores",
-            "content": "Aliqua id fugiat nostrud irure ex duis ea quis id quis ad et. Sunt qui esse pariatur duis deserunt mollit dolore cillum minim tempor enim. Elit aute irure tempor cupidatat incididunt sint deserunt ut voluptate aute id deserunt nisi.",
+            "content": {
+                "ro": "Aliqua id fugiat nostrud irure ex duis ea quis id quis ad et. Sunt qui esse pariatur duis deserunt mollit dolore cillum minim tempor enim. Elit aute irure tempor cupidatat incididunt sint deserunt ut voluptate aute id deserunt nisi.",
+                "ru": "Их профессиональная команда оперативно помогла мне в критические моменты. Я искренне рекомендую их страховку."
+            },
             "rating": 4
         },
         {
             "id": "9",
             "image": "http://localhost:3030/images/testimonial_profile_9.png",
             "name": "Ronald Richards",
-            "content": "Am fost implicat recent intr-un accident rutier. Am fost despagubit in timp. Personal foarte amabil. Recomand cu incredere!",
+            "content": {
+                "ro:": "Am fost implicat recent intr-un accident rutier. Am fost despagubit in timp. Personal foarte amabil. Recomand cu incredere!",
+                "ru": "Я недавно попал в дорожно-транспортное происшествие. Я был компенсирован во время. Очень дружелюбный персонал. Я рекомендую с уверенностью!"
+            },
             "rating": 4
         },
         {
             "id": "10",
             "image": "http://localhost:3030/images/testimonial_profile_10.png",
             "name": "Annette Black",
-            "content": "consectetur adipiscing elit duis tristique sollicitudin nibh sit amet commodo nulla facilisi nullam vehicula ipsum a arcu cursus vitae congue",
+            "content": {
+                "ro": "Aliqua id fugiat nostrud irure ex duis ea quis id quis ad et. Sunt qui esse pariatur duis deserunt mollit dolore cillum minim tempor enim. Elit aute irure tempor cupidatat incididunt sint deserunt ut voluptate aute id deserunt nisi.",
+                "ru": "Их профессиональная команда оперативно помогла мне в критические моменты. Я искренне рекомендую их страховку."
+            },
             "rating": 5
         },
         {
             "id": "11",
             "image": "http://localhost:3030/images/testimonial_profile_11.png",
             "name": "Floyd Miles",
-            "content": "Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet.",
+            "content": {
+                "ro": "Am fost implicat recent intr-un accident rutier. Am fost despagubit in timp. Personal foarte amabil. Recomand cu incredere!",
+                "ru": "Я недавно попал в дорожно-транспортное происшествие. Я был компенсирован во время. Очень дружелюбный персонал. Я рекомендую с уверенностью!"
+            },
             "rating": 4
         },
         {
             "id": "12",
             "image": "http://localhost:3030/images/testimonial_profile_12.png",
             "name": "Ralph Edwards",
-            "content": "Aliqua id fugiat nostrud irure ex duis ea quis id quis ad et. Sunt qui esse pariatur duis deserunt mollit dolore cillum minim tempor enim. Elit aute irure tempor cupidatat incididunt sint deserunt ut voluptate aute id deserunt nisi.",
+            "content": {
+                "ro": "Am fost implicat recent intr-un accident rutier. Am fost despagubit in timp. Personal foarte amabil. Recomand cu incredere!",
+                "ru": "Я недавно попал в дорожно-транспортное происшествие. Я был компенсирован во время. Очень дружелюбный персонал. Я рекомендую с уверенностью!"
+            },
             "rating": 4
         }
     ],
@@ -165,6 +201,20 @@
             "id": "1",
             "title": "carte_verde",
             "active": true,
+            "steps":[
+                "alege_tipul_autovehiculului",
+                "zona_de_deplasare"
+            ],
+            "form": {
+                "vehicul": null,
+                "zonaDeDeplasare": [],
+                "valabilitateaPolitei": null
+            },
+            "validation_rules":{
+                "vehicul": "empty",
+                "zonaDeDeplasare": "multiple",
+                "valabilitateaPolitei": "empty"
+            },
             "info": [
                 {
                     "id": "1",
@@ -182,6 +232,35 @@
             "id": "2",
             "title": "rca",
             "active": true,
+            "steps":[
+                "alege_tipul_autovehiculului",
+                "alege_marca",
+                "numarul_de_locuri"
+            ],
+            "form": {
+                "automobilImatriculat": null,
+                "persoana": null,
+                "domiciliu": "",
+                "vehicul": null,
+                "nrLocuri": null,
+                "nrPersAdmise": null,
+                "stagiu": null,
+                "pensionar": null,
+                "rcaAsigurat": null,
+                "asigRemorca": null
+            },
+            "validation_rules":{
+                "automobilImatriculat": "empty",
+                "persoana": "empty",
+                "domiciliu": "empty",
+                "vehicul": "empty",
+                "nrLocuri": "empty",
+                "nrPersAdmise": "empty",
+                "stagiu": "empty",
+                "pensionar": "empty",
+                "rcaAsigurat": "empty",
+                "asigRemorca": "empty"
+            },
             "info": [
                 {
                     "id": "1",
@@ -199,6 +278,29 @@
             "id": "3",
             "title": "casco",
             "active": true,
+            "steps":[
+                "alege_tipul_autovehiculului",
+                "alege_marca",
+                "alege_valoarea_pe_piata"
+            ],
+            "form": {
+                "vehicul": null,
+                "model": "",
+                "marca": "",
+                "anProducere": null,
+                "valoareaPePiata": "",
+                "teritoriulDeAcoperire": null,
+                "fransiza": null
+            },
+            "validation_rules":{
+                "vehicul": "empty",
+                "model": "empty",
+                "marca": "empty",
+                "anProducere": "empty",
+                "valoareaPePiata": "empty",
+                "teritoriulDeAcoperire": "empty",
+                "fransiza": "empty"
+            },
             "info": [
                 {
                     "id": "1",

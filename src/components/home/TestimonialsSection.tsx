@@ -5,6 +5,7 @@ import { useContent } from '../../contexts/ContentProvider.context'
 import { useState } from 'react'
 import SmoothFadeInOut from '../system/utils/Transition'
 import { useTranslation } from 'react-i18next'
+import useLanguage from '../../hooks/useLanguage'
 
 
 const ContainerStyles = styled.div`
@@ -65,6 +66,7 @@ cursor: pointer;
 }
 `
 const TestimonialsSection = () => {
+  const {tDynamic} = useLanguage()
   const {t} = useTranslation()
   const [activeTestimonial, setActiveTestimonial] = useState(0)
   const {testimonials} = useContent()
@@ -79,11 +81,15 @@ const TestimonialsSection = () => {
                   {testimonials.slice(
                     activeTestimonial * 4,
                     activeTestimonial * 4 + 4
-                  ).map((testimonial, index) => <Testimonial key={index} {...testimonial}/>)}
+                  ).map((testimonial, index) => <Testimonial 
+                  key={index} 
+                  {...testimonial}
+                  content={tDynamic(testimonial.content)}
+                  />)}
               </TestimonialContainerStyles>
             </SmoothFadeInOut>
             <PointsContainerStyles>
-              {new Array(testimonials.length/4).fill(0).map((testimonial, index) => <PointStyles
+              {new Array(testimonials.length/4).fill(0).map(( index) => <PointStyles
               onClick={() => setActiveTestimonial(index)}
                key={index} 
                className={`transition ${index === activeTestimonial ? 'active' : ''}`}/>

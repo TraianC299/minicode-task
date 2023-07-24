@@ -1,6 +1,5 @@
 import styled from 'styled-components'
 import IconButton from '../components/home/IconButton'
-import MEDIAQUERIES from '../constants/MEDIAQUERIES'
 import Modal from '../components/system/utils/Modal'
 import SignUpModal from '../components/home/SignUpModal'
 import { useState } from 'react'
@@ -8,6 +7,7 @@ import LogInModal from '../components/home/LogInModal'
 import { useContent } from '../contexts/ContentProvider.context'
 import DektopSidebarMenu from './DektopSidebarMenu'
 import ColorImage from '../components/system/utils/ColorImage'
+import { useTranslation } from 'react-i18next'
 
 
 const ContainerStyles = styled.div`
@@ -22,7 +22,7 @@ height: 5rem;
 background: var(--white, #FFF);
 z-index: 9999;
 box-shadow: 0px 5px 15px 2px rgba(27, 25, 24, 0.05);
-@media ${MEDIAQUERIES.LAPTOP}{
+@media (min-width: 768px){
     display: none;
 }
 `
@@ -58,6 +58,7 @@ margin-right: 20px;
 
 
 const PhoneNav = () => {
+    const {t} = useTranslation()
     const {icons} = useContent()
     const [openLogInModal, setOpenLogInModal] = useState(false)
     const [openSignUpModal, setOpenSignUpModal] = useState(false)
@@ -79,14 +80,14 @@ const PhoneNav = () => {
             <IconButton
             onClick={() => setOpenLogInModal(true)}
             icon={<ColorImage color='burgundy' height={32} width={32} src={icons['users']} alt=""></ColorImage>}
-            text='Logare'
+            text={t("inregistrare")}
             >
             </IconButton>
         
             <IconButton
             onClick={() => setOpenSignUpModal(true)}
             icon={<ColorImage color='burgundy' height={32} width={32} src={icons['file-reg']} alt=""></ColorImage>}
-            text='Înregistrare'
+            text={t("inregistrare")}
             />
         
         </AuthButtonsContainer>

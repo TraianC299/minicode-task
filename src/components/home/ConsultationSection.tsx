@@ -3,9 +3,9 @@ import Button from '../system/inputs/Button'
 import { useState } from 'react'
 import MEDIAQUERIES from '../../constants/MEDIAQUERIES'
 import styled from 'styled-components'
-import { useContent } from '../../contexts/ContentProvider.context'
 import PhoneNumberInput from '../system/inputs/PhoneNumberInput'
 import { useTranslation } from 'react-i18next'
+import useForm from '../../hooks/useForm'
 
 
 
@@ -68,11 +68,21 @@ flex-shrink: 0;
 
 const ConsultationSection = () => {
     const {t} = useTranslation()
-    const {consultation} = useContent()
     const [form, setForm] = useState({
         name: '',
         phone: ''
     })
+    const {handleChange, errors, validateForm} = useForm(form, setForm,{
+        name:"empty",
+        phone:"empty"
+    })
+
+
+    const submitForm = (e:React.FormEvent<HTMLFormElement>) => {
+        e.preventDefault()
+        validateForm()
+    }
+
 
 
   return (
@@ -82,17 +92,20 @@ const ConsultationSection = () => {
                 <h3 className='h3 raleway'>{t('consultatie_titlu')}</h3>
                 <p className='p'>{t('consultatie_subtitlu')}</p>
             </TextContainerStyles>
-            <FormContainerStyles>
+            <FormContainerStyles
+            onSubmit={submitForm}
+            >
                 <div className='input-container'>
                     <Input
+                    error={errors.name}
                     placeholder={t('nume')}
                     value={form.name}
-                    onChange={(e) => setForm({...form, name: e.target.value})}
+                    onChange={(value) => handleChange(value,'name')}
                     ></Input>
                     <PhoneNumberInput
-                   
+                    error={errors.phone}
                     value={form.phone}
-                    onChange={(e) => setForm({...form, phone: e.target.value})}
+                    onChange={(value) => handleChange(value,'phone')}
                     ></PhoneNumberInput>
                 </div>
                 <Button type='submit'>{

@@ -10,6 +10,17 @@ const useForm = (form: any, setForm:any, vlidationRules:any) => {
         setErrors((prevErrors:any) => ({ ...prevErrors, [name]: error }));
     };
 
+    const validateMultiple = (names: string[]) => {
+        
+        let valid = true;
+        names.forEach((name) => {
+            const error = validateField(vlidationRules[name], form[name]);
+            setErrors((prevErrors:any) => ({ ...prevErrors, [name]: error }));
+            if (error) valid = false;
+        });
+        return valid;
+    }
+
     
    
     const handleChange = (value:any, key:string) => {
@@ -29,27 +40,29 @@ const useForm = (form: any, setForm:any, vlidationRules:any) => {
     
  
     
-    return { form, errors, handleChange, validateForm };
+    return { form, errors, handleChange, validateMultiple, setErrors, validateForm };
     }
 export default useForm;
 
 
-export const validateField = (name: string, value: string) => {
+export const validateField = (name: string, value: string | string[]) => {
     switch (name) {
         case "email":
-            return validateEmail(value);
+            return validateEmail(value as string);
         case "password":
-            return validatePassword(value);
+            return validatePassword(value as string);
         case "confirmPassword":
-            return validateConfirmPassword(value);
+            return validateConfirmPassword(value as string);
         case "number":
-            return validateNumber(value);
+            return validateNumber(value as string);
         case "check":
-            return validateCheck(value);
+            return validateCheck(value as string);
+        case "multiple":
+            return validateEmptyArray(value as string[]);
         case "empty":
-            return validateEmpty(value);
+            return validateEmpty(value as string);
         case "radio":{
-            return validateRadio(value);
+            return validateRadio(value as string);
         }
         default:
             return "";
@@ -73,6 +86,13 @@ export const validatePassword = (password: string) => {
 export const validateConfirmPassword = (confirmPassword: string) => {
     if (confirmPassword.length < 6) {
         return "Password must be at least 6 characters";
+    }
+    return "";
+}
+
+export const validateEmptyArray = (array: any[]) => {
+    if (array.length === 0) {
+        return "Camp obligator";
     }
     return "";
 }

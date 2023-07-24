@@ -1,4 +1,5 @@
-import { useInsurance } from '../../../../contexts/InsuranceProvider.context'
+import { useEffect } from 'react'
+import { useInsuranceForm } from '../../../../contexts/InsuranceFormProvider.context'
 import Checkbox from '../../../system/inputs/Checkbox'
 import Input from '../../../system/inputs/Input'
 
@@ -38,8 +39,12 @@ const asigRemorca = [
 ]
 
 const Step4 = () => {
-    const { form, handleChange } = useInsurance()
+    const { form, handleChange,setCurrentFields } = useInsuranceForm()
+    useEffect(() => {
+        setCurrentFields(['pensionar', 'rcaAsigurat', 'asigRemorca'])
+    }, [])
 
+    
     return (
         <div className='w-full flex flex-column gap-8'>
             <Input.Wrapper className='gap-4'>

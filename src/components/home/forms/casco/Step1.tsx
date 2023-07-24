@@ -1,7 +1,8 @@
 import VehicleCheckbox from '../../../system/inputs/VehicleCheckbox'
 import { useContent } from '../../../../contexts/ContentProvider.context'
 import styled from 'styled-components'
-import { useInsurance } from '../../../../contexts/InsuranceProvider.context'
+import { useInsuranceForm } from '../../../../contexts/InsuranceFormProvider.context'
+import { useEffect } from 'react'
 
 
 const ContainerStyles = styled.div`
@@ -63,9 +64,13 @@ const vehicles = [
         
 
 const Step1 = () => {
-    const {form,handleChange} = useInsurance()
+    const {form,handleChange, setCurrentFields, errors} = useInsuranceForm()
     const {icons}  = useContent()
 
+
+    useEffect(() => {
+        setCurrentFields(['vehicul'])
+    }, [])
 
   return (
     <ContainerStyles>
@@ -73,6 +78,7 @@ const Step1 = () => {
         {vehicles.map(vehicle => (
             <VehicleCheckbox
             key={vehicle.id}
+            error={errors.vehicul}
             iconSrc={icons[vehicle.icon]}
             title={vehicle.title}
             value={form.vehicul === vehicle.id}

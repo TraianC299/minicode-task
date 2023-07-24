@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import MEDIAQUERIES from "../../../constants/MEDIAQUERIES";
 
 const Screen = styled.div`
 height: 100vh;

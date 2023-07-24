@@ -43,7 +43,7 @@ export const useContent=():ContentState=>{
 
 
 export const ContentProvider = ({children}:ContentProviderProps) => {
-    const [loading, setLoading] = useState(true)
+    const [loading, setLoading] = useState<boolean>(true)
     const [icons, setIcons] = useState<{[x:string]:string}>({})
     const [images, setImages] = useState<{[x:string]:string}>({})
     const [cards, setCards] = useState<CardType[]>([])
@@ -74,7 +74,6 @@ export const ContentProvider = ({children}:ContentProviderProps) => {
                 setTestimonials(data[4])
                 setConsultation(data[5])
                 setLoading(false)
-
             })
     }, [])
 

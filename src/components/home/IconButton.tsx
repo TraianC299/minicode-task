@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { ReactNode } from 'react'
 import styled from 'styled-components'
 
 const ContainerStyles = styled.div`
@@ -15,7 +15,7 @@ cursor: pointer;
 
 
 interface IconButtonProps extends React.HTMLAttributes<HTMLDivElement> {
-    icon: any,
+    icon: ReactNode,
     text: string | React.ReactNode
 }
 

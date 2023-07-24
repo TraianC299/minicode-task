@@ -2,6 +2,7 @@ import styled from "styled-components"
 import { useContent } from "../../../contexts/ContentProvider.context"
 import ColorImage from "../../system/utils/ColorImage"
 import MEDIAQUERIES from "../../../constants/MEDIAQUERIES"
+import { useInsurance } from "../../../contexts/InsuranceProvider.context"
 
 
 const VerticalStepperContainerStyles = styled.div`
@@ -60,27 +61,23 @@ width: 2px;
 background: var(--gray);
 `
 
-interface VerticalStepperProps {
-    stepsNr: number
-    currentStep: number
-}
-const VerticalStepper = ({
-    stepsNr,
-    currentStep
-}:VerticalStepperProps) => {
+
+const VerticalStepper = () => {
+    const {currentInstance, step} = useInsurance()
     const {icons} = useContent()
+    const stepsNr = currentInstance?.steps.length || 0
+
     return (
         <VerticalStepperContainerStyles>
       
 
         {new Array(stepsNr).fill(0).map((_, index) => {
-            const step = index + 1
             return (
                 <>
-                <PointStyles className={step < currentStep ? "done" : step === currentStep ? "current" : ""}>
-                    {step < currentStep ? <span className="done"></span> : step === currentStep ? <ColorImage color="white" src={icons.check} alt=""></ColorImage> : step}
+                <PointStyles className={index < step ? "done" : index === step ? "current" : ""}>
+                    {index < step ? <span className="done"></span> : index === step ? <ColorImage color="white" src={icons.check} alt=""></ColorImage> : index}
                 </PointStyles>
-                {step < stepsNr && <LineStyles/>}
+                {index < stepsNr - 1 && <LineStyles></LineStyles>}
                 </>
             )
         }

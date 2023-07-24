@@ -1,7 +1,8 @@
 import Checkbox from '../../../system/inputs/Checkbox'
 import VerticalRadio from '../../../system/inputs/VerticalRadio'
 import Input from '../../../system/inputs/Input'
-import { useInsurance } from '../../../../contexts/InsuranceProvider.context'
+import { useInsuranceForm } from '../../../../contexts/InsuranceFormProvider.context'
+import { useEffect } from 'react'
 
 
 
@@ -70,7 +71,7 @@ const zonaDeplasare = [
 ]
 const Step2 = () => {
 
-    const {handleChange, form} = useInsurance()
+    const {handleChange, form, setCurrentFields, errors} = useInsuranceForm() 
 
 
     const onCheck = (value: boolean, id: string) => {
@@ -89,15 +90,21 @@ const Step2 = () => {
         }
     }
 
+    useEffect(() => {
+        setCurrentFields(['zonaDeDeplasare', 'valabilitateaPolitei'])
+    }, [])
+
      
   return (
     <div className='flex flex-column gap-4'>
-        <Input.Wrapper className='flex flex-column gap-2'>
-            <Input.Label>Zona de deplasare:</Input.Label>
+        <Input.Wrapper
+        error={errors.zonaDeDeplasare}
+         className='flex flex-column gap-2'>
+            <Input.Label
+            >Zona de deplasare:</Input.Label>
             <div className='flex flex-column gap-4'>
                 {zonaDeplasare.map((item) => (
                     <Checkbox
-
                     key={item.id}
                     title={item.title}
                     value={form.zonaDeDeplasare?.includes(item.id)}
@@ -107,8 +114,12 @@ const Step2 = () => {
 
             </div>
         </Input.Wrapper>
-        <Input.Wrapper className='flex flex-column gap-2'>
-            <Input.Label>Valabilitatea poliței:</Input.Label>
+        <Input.Wrapper 
+        error={errors.valabilitateaPolitei}
+        className='flex flex-column gap-2'>
+            <Input.Label
+            className={errors.valabilitateaPolitei}
+            >Valabilitatea poliței:</Input.Label>
             <div className='flex gap-4'>
                 {valabilitateaPolitei.map((item) => (
                     <VerticalRadio

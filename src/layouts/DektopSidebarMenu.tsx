@@ -76,6 +76,9 @@ interface DektopSidebarMenuProps {
 
 
 const SmallLinkStyles = styled(LinkStyles)`
+>p{
+    cursor: pointer;
+}
 >img{
     height: 18px;
     width: 18px;
@@ -84,6 +87,10 @@ const SmallLinkStyles = styled(LinkStyles)`
     height: 18px;
     width: 1px;
     background: var(--gray);
+}
+>.active{
+    color: var(--burgundy);
+    font-weight: 600;
 }
 `
 
@@ -181,9 +188,12 @@ const DektopSidebarMenu = ({ visible, setVisible }: DektopSidebarMenuProps) => {
                 </div>
                 <SmallLinkStyles>
                     <ColorImage color='burgundy' src={icons['lang']} />
-                    {LANGUAGES.map(el => <p
+                    {LANGUAGES.map((el, index) => <><p
                         onClick={() => onChangeLang(el.code)}
-                        className={`p ${currentLang === el.code ? 'active' : ''}`}>{el.code.toUpperCase()}</p>)}
+                        className={`p ${currentLang === el.code ? 'active' : ''}`}>{el.code.toUpperCase()}</p>
+                            {index !== LANGUAGES.length - 1 && <div className='line'/>}
+                        </>)
+                        }
                 </SmallLinkStyles>
                 <div className='flex flex-column gap-2'>
                     {bottomMenuItens.map(el => <SmallLinkStyles className='flex justify-start items-center'>
