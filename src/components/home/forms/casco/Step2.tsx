@@ -3,6 +3,7 @@ import Input from '../../../system/inputs/Input'
 import VerticalRadio from '../../../system/inputs/VerticalRadio'
 import { useInsuranceForm } from '../../../../contexts/InsuranceFormProvider.context'
 import { useEffect } from 'react'
+import { useTranslation } from 'react-i18next'
 
 
 
@@ -80,6 +81,7 @@ const anulProduceriiOptions = [
     }
 ]
 const Step2 = () => {
+    const {t} = useTranslation()
     const {form, handleChange,errors,setCurrentFields} = useInsuranceForm()
   
     useEffect(() => {
@@ -91,19 +93,19 @@ const Step2 = () => {
                 <Input 
                 error={errors.model}
                 value={form.model}
-                placeholder='Introduceți modelul'
+                placeholder={t("introduceti_modelul")}
                 onChange={(value)=>handleChange(value,'model')}
-                label='Model' className='w-full'/>
+                label={t('model')} className='w-full'/>
                 <Input 
                 error={errors.marca}
                 value={form.marca}
                 onChange={(value)=>handleChange(value,'marca')}
-                label='Marca' 
-                placeholder='Introduceți marca'
+                label={t('marca')}
+                placeholder={t("intro_marca")}
                 className='w-full'/>
             </InputsContainerStyles>
             <Input.Wrapper error={errors.anProducere} className='gap-2'>
-                <Input.Label >Anul producerii</Input.Label>
+                <Input.Label >{t('anul_producerii')}</Input.Label>
                 <RadioContainerStyles className='flex flex gap-1'>
                     {anulProduceriiOptions.map((option) => (
                         <VerticalRadio

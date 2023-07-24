@@ -3,6 +3,7 @@ import VehicleCheckbox from "../../../system/inputs/VehicleCheckbox"
 import { useContent } from "../../../../contexts/ContentProvider.context"
 import { useInsuranceForm } from "../../../../contexts/InsuranceFormProvider.context"
 import { useEffect } from "react"
+import { useTranslation } from "react-i18next"
 
 const ContainerStyles = styled.div`
 display: grid;
@@ -16,7 +17,7 @@ gap: 20px;
 const vehicles = [
     {
         id: '1',
-        title: 'Autoturism cu pînă la 9 locuri',
+        title: 'autoturism_cu_pana_la_9',
         icon: "car"
     },
     {
@@ -47,6 +48,8 @@ const vehicles = [
   
 
 const Step2 = () => {
+    const {t} = useTranslation()
+
     const {icons} = useContent()
     const {form, handleChange,setCurrentFields, errors} = useInsuranceForm()
     useEffect(() => {
@@ -60,7 +63,7 @@ const Step2 = () => {
             error={errors.vehicul}
             key={vehicle.id}
             iconSrc={icons[vehicle.icon]}
-            title={vehicle.title}
+            title={t(vehicle.title)}
             value={form.vehicul === vehicle.id}
             onChange={() => handleChange(vehicle.id, 'vehicul')}
             ></VehicleCheckbox>

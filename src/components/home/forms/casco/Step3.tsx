@@ -2,21 +2,22 @@ import Input from '../../../system/inputs/Input'
 import Checkbox from '../../../system/inputs/Checkbox'
 import { useInsuranceForm } from '../../../../contexts/InsuranceFormProvider.context'
 import { useEffect } from 'react'
+import { useTranslation } from 'react-i18next'
 
 
 
 const teritoriulDeAcoperireOptions = [
     {
         id: '1',
-        title: 'RM'
+        title: 'rm'
     },
     {
         id: '2',
-        title: 'RM + CSI'
+        title: 'rm_csi'
     },
     {
         id: '3',
-        title: 'RM + CSI + EU + TURCIA'
+        title: 'rm_csi_eu_turcia'
     }
 ]
 
@@ -24,17 +25,18 @@ const teritoriulDeAcoperireOptions = [
 const fransizaOptions = [
     {
         id: '1',
-        title: 'Fără Franșiză'
+        title: 'fara_fransiza'
     },
     {
         id: '2',
-        title: 'Cu aplicarea franșizei'
+        title: 'cu_aplicarea_fransizei'
     }
 ]
 
 
 
 const Step3 = () => {
+    const {t} = useTranslation()
     const {form, handleChange,setCurrentFields, errors} = useInsuranceForm()
 
     useEffect(() => {
@@ -47,16 +49,14 @@ const Step3 = () => {
             type='number'
             value={form.valoareaPePiata}
             onChange={(value) => handleChange(value, 'valoareaPePiata')}
-            label='Valoarea de piață ( € )' />
+            label={t('valoarea_pe_piata')} />
             <Input.Wrapper error={errors.teritoriulDeAcoperire } className='gap-2'>
-                <Input.Label
-                
-                >Teritoriul de acoperire CASCO</Input.Label>
+                <Input.Label>{t('teritoriul_de_acoperire_casco')}</Input.Label>
                 <div className='flex gap-8'>
                     {teritoriulDeAcoperireOptions.map((option) => (
                         <Checkbox
                             key={option.id}
-                            title={option.title}
+                            title={t(option.title)}
                             value={form.teritoriulDeAcoperire === option.id}
                             onChange={() => handleChange(option.id, 'teritoriulDeAcoperire')}
                         />
@@ -66,12 +66,12 @@ const Step3 = () => {
             <Input.Wrapper error={errors.fransiza} className='gap-2'>
             <Input.Label
             
-            >Franșiza</Input.Label>
+            >{t("fransiza")}</Input.Label>
                 <div className='flex gap-8'>
                     {fransizaOptions.map((option) => (
                         <Checkbox
                             key={option.id}
-                            title={option.title}
+                            title={t(option.title)}
                             value={form.fransiza === option.id}
                             onChange={() => handleChange(option.id, 'fransiza')}
                         />

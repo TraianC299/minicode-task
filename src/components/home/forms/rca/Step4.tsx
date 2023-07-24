@@ -2,27 +2,28 @@ import { useEffect } from 'react'
 import { useInsuranceForm } from '../../../../contexts/InsuranceFormProvider.context'
 import Checkbox from '../../../system/inputs/Checkbox'
 import Input from '../../../system/inputs/Input'
+import { useTranslation } from 'react-i18next'
 
 
 
 const pensionarOptions = [
     {
         id: true,
-        title: 'Da'
+        title: 'da'
     },
     {
         id: false,
-        title: 'Nu'
+        title: 'nu'
     }
 ]
 const rcaAsigurat = [
     {
         id: true,
-        title: 'Da'
+        title: 'da'
     },
     {
         id: false,
-        title: 'Nu'
+        title: 'nu'
     }
 ]
 
@@ -30,15 +31,16 @@ const rcaAsigurat = [
 const asigRemorca = [
     {
         id: true,
-        title: 'Da'
+        title: 'da'
     },
     {
         id: false,
-        title: 'Nu'
+        title: 'nu'
     }
 ]
 
 const Step4 = () => {
+    const {t} = useTranslation()
     const { form, handleChange,setCurrentFields } = useInsuranceForm()
     useEffect(() => {
         setCurrentFields(['pensionar', 'rcaAsigurat', 'asigRemorca'])
@@ -48,12 +50,12 @@ const Step4 = () => {
     return (
         <div className='w-full flex flex-column gap-8'>
             <Input.Wrapper className='gap-4'>
-                <Input.Label>Sunteti pensionar sau aveti grad de invaliditate?</Input.Label>
+                <Input.Label>{t('sunteti_pensionar')}</Input.Label>
                 <div className='flex gap-8'>
                     {pensionarOptions.map((option, index) => (
                         <Checkbox
                             key={index}
-                            title={option.title}
+                            title={t(option.title)}
                             value={form.pensionar === option.id}
                             onChange={() => handleChange(option.id, 'pensionar')}
                         />
@@ -62,12 +64,12 @@ const Step4 = () => {
             </Input.Wrapper>
             <Input.Wrapper
                 className='gap-4'>
-                <Input.Label>Aţi mai încheiat contract de asigurare RCA?</Input.Label>
+                <Input.Label>{t('ati_incheiat')}</Input.Label>
                 <div className='flex gap-8'>
                     {rcaAsigurat.map((option, index) => (
                         <Checkbox
                             key={index}
-                            title={option.title}
+                            title={t(option.title)}
                             value={form.rcaAsigurat === option.id}
                             onChange={() => handleChange(option.id, 'rcaAsigurat')}
                         />
@@ -76,12 +78,12 @@ const Step4 = () => {
             </Input.Wrapper >
             <Input.Wrapper
                 className='gap-4'>
-                <Input.Label>Asigurare pentru remorci</Input.Label>
+                <Input.Label>{t('asigurare_pt_remorci')}</Input.Label>
                 <div className='flex gap-8'>
                     {asigRemorca.map((option, index) => (
                         <Checkbox
                             key={index}
-                            title={option.title}
+                            title={t(option.title)}
                             value={form.asigRemorca === option.id}
                             onChange={() => handleChange(option.id, 'asigRemorca')}
                         />

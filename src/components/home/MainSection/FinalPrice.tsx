@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { useContent } from "../../../contexts/ContentProvider.context";
+import { useTranslation } from "react-i18next";
 
 
 
@@ -19,6 +20,7 @@ interface FinalPriceProps {
 }
 const FinalPrice = ({finalPrice}:FinalPriceProps) => {
     const {images} = useContent()
+  const {t}=  useTranslation()
   return (
     <ContainerStyles>
         <div className="flex justify-center items-center">
@@ -27,7 +29,7 @@ const FinalPrice = ({finalPrice}:FinalPriceProps) => {
         </div>
         <p className="h2">+</p>
         <img src={images["24h"]} alt="arrow right"/>
-        <p className="h5">Livrare gratuită</p>
+        <p className="h5">{t('livrare_gratuita')}</p>
 
 
     </ContainerStyles>

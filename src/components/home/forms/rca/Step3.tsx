@@ -2,6 +2,7 @@ import { useEffect } from 'react'
 import { useInsuranceForm } from '../../../../contexts/InsuranceFormProvider.context'
 import Input from '../../../system/inputs/Input'
 import Select from '../../../system/inputs/Select'
+import { useTranslation } from 'react-i18next'
 
 
 
@@ -42,6 +43,7 @@ const nrPersoane = [
 
 
 const Step3 = () => {
+    const {t} = useTranslation()
     const {form, handleChange, setCurrentFields, errors} = useInsuranceForm()
     useEffect(() => {
         setCurrentFields(['nrLocuri', 'nrPersAdmise', 'stagiu'])
@@ -51,26 +53,28 @@ const Step3 = () => {
                 
                 <Select
                     error={errors.nrLocuri}
-                    label='Numarul de locuri:'
+                    label={t('nr_de_locuri')}
                     moreInfo
                     value={form.nrLocuri}
                     onChange={(value) => handleChange(value, 'nrLocuri')}
                     options={nrDeLocuri}
-                    placheloder='Selecteaza o optiune' />
+                    placheloder={t('selectati_o_optiune')} />
           
                 <Select
                     error={errors.nrLocuri}
-                    label='Numărul persoanelor admise la conducere:'
+                    label={t('nr_persoanelor_admise')}
                     moreInfo
                     value={form.nrPersAdmise}
                     onChange={(value) => handleChange(value, 'nrPersAdmise')}
                     options={nrPersoane}
-                    placheloder='Selecteaza o optiune' />
+                    placheloder={t('selectati_o_optiune')} />
             <Input 
             error={errors?.stagiu}
             value={form?.stagiu} 
             onChange={(value) => handleChange(value, 'stagiu')}
-            moreInfo label='Stagiul de conducere a posesorului:' />
+            moreInfo 
+            placeholder={t('pana_la_1_an')}
+            label={t('stagiul_de_conducere')} />
         </div>
     )
 }

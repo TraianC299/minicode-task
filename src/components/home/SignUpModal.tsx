@@ -39,7 +39,7 @@ const SignUpModal = () => {
         <h3 className='h2 font-bold'>{t('inregistreaza_te')}</h3>
         <div className='flex gap-2'>
             <p>{t('deja_ai_cont')}</p>
-            <a className='underline font-regular'>{t("logeaza_te")}</a>
+            <a className='underline font-regular'>{t("logheaza_te")}</a>
         </div>
         <Input
         placeholder={t("email")}
@@ -60,7 +60,7 @@ const SignUpModal = () => {
         <Checkbox
         value={form.termsAndConditions}
         onChange={(value:boolean) => setForm({...form, termsAndConditions: value})}
-        title='Sunt de acord cu cu Termenii și condițiile site-ului'
+        title={t('acord_termeni')}
         ></Checkbox>
         <Button className='p-bold w-full'>{t("inregistrare")}</Button>
 

@@ -3,6 +3,7 @@ import { useContent } from '../../../../contexts/ContentProvider.context'
 import styled from 'styled-components'
 import { useInsuranceForm } from '../../../../contexts/InsuranceFormProvider.context'
 import { useEffect } from 'react'
+import { useTranslation } from 'react-i18next'
 
 
 const ContainerStyles = styled.div`
@@ -17,53 +18,54 @@ gap: 20px;
 const vehicles = [
     {
         id: '1',
-        title: 'Autoturism cu pînă la 9 locuri',
+        title: 'autoturism_cu_pana_la_9',
         icon: "car"
     },
     {
         id: '2',
-        title: 'Camion pînă la 3,5 tone',
+        title: 'camion_pana_la_3',
         icon: 'minitruck',
     },
     {
         id: '3',
-        title: 'Camion mai mult de 3,5 tone',
+        title: 'camion_peste_3',
         icon: 'truck',
     },
     {
         id: '4',
-        title: 'Microbus de pana la 20 de locuri',
+        title: 'microbus_de_pana_la_20',
         icon: 'minibus',
     },
     {
         id: '5',
-        title: 'Autobuz peste 20 locuri',
+        title: 'autobuz_peste_20',
         icon: 'bus',
     },
     {
         id: '6',
-        title: 'Remorci, semiremorci',
+        title: 'remorci_semiremorci',
         icon: 'trailer',
     },
     {
         id: '7',
-        title: 'Refrigeratoare, cisterne',
+        title: 'refrigeratoare_cisterne',
         icon: 'refrigerant'
     },
     {
         id: '8',
-        title: 'Tehnică specială',
+        title: 'tehnica_speciala',
         icon: 'technique'
     },
     {
         id: '9',
-        title: 'Echipament suplimentar',
+        title: 'echipament_suplimentar',
         icon: 'other-technique'
     }
 ]
         
 
 const Step1 = () => {
+    const {t} = useTranslation()
     const {form,handleChange, setCurrentFields, errors} = useInsuranceForm()
     const {icons}  = useContent()
 
@@ -77,10 +79,11 @@ const Step1 = () => {
        
         {vehicles.map(vehicle => (
             <VehicleCheckbox
+
             key={vehicle.id}
             error={errors.vehicul}
             iconSrc={icons[vehicle.icon]}
-            title={vehicle.title}
+            title={t(vehicle.title)}
             value={form.vehicul === vehicle.id}
             onChange={() => handleChange(vehicle.id, 'vehicul')}
             ></VehicleCheckbox>

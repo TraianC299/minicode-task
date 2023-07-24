@@ -25,27 +25,27 @@
     "vehicles": [
         {
             "id": "1",
-            "title": "Autoturism cu pînă la 9 locuri",
+            "title": "autoturism_cu_pana_la_9",
             "icon": "http://localhost:3030/icons/special/car.svg"
         },
         {
             "id": "2",
-            "title": "Camion pînă la 3,5 tone",
+            "title": "camion_pana_la_3",
             "icon": "http://localhost:3030/icons/special/minitruck.svg"
         },
         {
             "id": "3",
-            "title": "Camion mai mult de 3,5 tone",
+            "title": "camion_peste_3",
             "icon": "http://localhost:3030/icons/special/truck.svg"
         },
         {
             "id": "4",
-            "title": "Microbus de pana la 20 de locuri",
+            "title": "microbus_de_pana_la_20",
             "icon": "http://localhost:3030/icons/special/minibus.svg"
         },
         {
             "id": "5",
-            "title": "Autobuz peste 20 locuri",
+            "title": "autobuz_peste_20",
             "icon": "http://localhost:3030/icons/special/bus.svg"
         },
         {
@@ -55,17 +55,17 @@
         },
         {
             "id": "7",
-            "title": "Refrigeratoare, cisterne",
+            "title": "refrigeratoare_cisterne",
             "icon": "http://localhost:3030/icons/special/refrigerant.svg"
         },
         {
             "id": "8",
-            "title": "Tehnică specială",
+            "title": "tehnica_speciala",
             "icon": "http://localhost:3030/icons/special/technique.svg"
         },
         {
             "id": "9",
-            "title": "Echipament suplimentar",
+            "title": "echipament_suplimentar",
             "icon": "http://localhost:3030/icons/special/other-technique.svg"
         }
     ],
@@ -219,12 +219,12 @@
                 {
                     "id": "1",
                     "title": "obiectul_asigurarii",
-                    "content": "Prin asigurarea „Carte Verde” sunt protejate interesele terțelor persoane pentru pagubele produse vieții, sănătății și bunurilor lor în urma accidentelor rutiere, care au avut loc în afara hotarelor Republicii Moldova (pe teritoriul țărilor membre ale sistemului „Carte Verde”)."
+                    "content": "carte_verde_obiectul_asigurarii"
                 },
                 {
                     "id": "2",
                     "title": "riscuri_si_obligatiuni",
-                    "content": "Se acordă despăgubiri pentru prejudiciile provocate prin accidente de vehicule produse în limitele teritoriale de acoperire, în conformitate cu legislaţia în vigoare din statul pe teritoriul căruia s-a produs accidentul. \nDespăgubirile se acordă pentru pagube materiale, cheltuieli de judecată efectuate de către persoana prejudiciată şi vătămări corporale sau deces, inclusiv pentru prejudicii fără caracter patrimonial."
+                    "content": "carte_verde_riscuri_si_obligatiuni"
                 }
             ]
         },
@@ -265,12 +265,12 @@
                 {
                     "id": "1",
                     "title": "obiectul_asigurarii",
-                    "content": "Asigurarea RCA oferă protecție pentru eventualele prejudicii cauzate de asigurat terțelor persoane prin accidente de autovehicule pe teritoriul Republicii Moldova, și anume: \ndeces sau vătămări corporale; \navarii sau distrugeri ale unor bunuri (inclusiv autovehicule)."
+                    "content":"rca_obiectul_asigurarii"
                 },
                 {
                     "id": "2",
                     "title": "riscuri_si_obligatiuni",
-                    "content": "Aliqua id fugiat nostrud irure ex duis ea quis id quis ad et. Sunt qui esse pariatur duis deserunt mollit dolore cillum minim tempor enim. Elit aute irure tempor cupidatat incididunt sint deserunt ut voluptate aute id deserunt nisi."
+                    "content": "rca_riscuri_si_obligatiuni"
                 }
             ]
         },
@@ -305,12 +305,12 @@
                 {
                     "id": "1",
                     "title": "obiectul_asigurarii",
-                    "content": "Autovehicule înmatriculate în Republica Moldova, care aparţin persoanelor fizice şi juridice.\nEchipamentul suplimentar, care nu intră în dotarea autovehiculului conform listei de dotări ale uzinei producătoare.\nConducătorul auto şi pasagerii, pentru cazuri de accidente care pot avea loc în timpul accidentelor rutiere."
+                    "content":"casco_obiectul_asigurarii"
                 },
                 {
                     "id": "2",
                     "title": "riscuri_si_obligatiuni",
-                    "content": "- 'DAUNE' - prejudiciile materiale cauzate Asiguratului prin deteriorarea sau distrugerea autovehiculului şi a echipamentului suplimentar ca urmare a:  \na. tamponării, lovirii sau ciocnirii cu un alt autovehicul, obiect; trecerii peste orice fel de obiecte statice sau în mişcare; căderii; căderii pe autovehicul a unor obiecte străine; derapării; răsturnării; alunecării;\nb. incendiului, descărcării electrice, exploziei, ploii torenţiale, grindinei, inundaţiei, uraganului, cutremurului de pămînt, surpărilor, alunecărilor de teren, căderilor abundente de zăpadă, avalanşelor, inclusiv acţiunea directă sau indirectă a acestora;\n- „FURT” – furtul, jaful, tîlhăria, răpirea autovehicului, a părţilor componente sau pieselor acestuia; orice daune cauzate ca urmare a furtului, jafului, tîlhăriei, răpirei sau tentativei de furt, jaf, tîlharie, răpire a autovehicului, a părţilor lui componente şi a pieselor, echipamentului primit în asigurare, precum şi a echipamentului suplimentar şi accesoriilor dacă acestea sunt asigurate conform contractului de asigurare.\n-„ACCIDENT” – cauzarea leziunilor corporale sau decesul conducătorului auto/pasagerilor ca rezultat al unui accident rutier.\n'AUTOCASCO' - pachetul complet de riscuri, compus din grupurile de risc 'DAUNĂ' şi 'FURT', care poate include suplimentar riscul 'ACCIDENT'."
+                    "content": "casco_riscuri_si_obligatiuni"
                 }
             ]
         },

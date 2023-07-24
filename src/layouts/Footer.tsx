@@ -92,10 +92,10 @@ const Footer = () => {
                 <LogoContainer>
                     <ColorImage color='white' height={34} src={icons.logo}></ColorImage>
                     <p className='p'>{t("footer_text")}</p>
-                    <Button className='ghost'>Comanda apel</Button>
+                    <Button className='ghost'>{t('comanda_apel')}</Button>
                 </LogoContainer>
                 <Section className='flex flex-column'>
-                    <h5 className='h5'>Companie</h5>
+                    <h5 className='h5'>{t('companie')}</h5>
                     <div className='links'>
                         <a className='p'>{t("produse_de_asigurare")}</a>
                         <a className='p'>{t("caz_asigurat")}</a>
@@ -116,12 +116,12 @@ const Footer = () => {
                     </div>
                 </Section>
                 <Section className='flex flex-column'>
-                    <h5 className='h5'>Social media</h5>
+                    <h5 className='h5'>{t('social_media')}</h5>
                     <div className='links'>
-                        <a className='p'>Facebook</a>
-                        <a className='p'>Instagram</a>
-                        <a className='p'>LinkedIn</a>
-                        <a className='p'>Youtube</a>
+                        <a className='p'>{t('facebook')}</a>
+                        <a className='p'>{t('instagram')}</a>
+                        <a className='p'>{t('linkedin')}</a>
+                        <a className='p'>{t('youtube')}</a>
                     </div>
                 </Section>
             </InnerContainer>

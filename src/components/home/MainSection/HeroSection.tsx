@@ -101,7 +101,7 @@ const HeroSection = () => {
               {currentInstance?.info?.map(el=><Collapsible 
               key={el.id} 
               title={t(el.title)} 
-              content={el.content}/>) }
+              content={t(el.content)}/>) }
           
               </CollapsiblesContainer>
           </InsurancePresentationContainer>

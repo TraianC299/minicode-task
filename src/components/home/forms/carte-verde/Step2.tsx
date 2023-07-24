@@ -3,6 +3,7 @@ import VerticalRadio from '../../../system/inputs/VerticalRadio'
 import Input from '../../../system/inputs/Input'
 import { useInsuranceForm } from '../../../../contexts/InsuranceFormProvider.context'
 import { useEffect } from 'react'
+import { useTranslation } from 'react-i18next'
 
 
 
@@ -58,19 +59,19 @@ const valabilitateaPolitei = [
 const zonaDeplasare = [
     {
         id: '1',
-        title: 'Ucraina, Belarus'
+        title: 'ucraina_belarus'
     },
     {
         id: '2',
-        title: 'Ucraina, Belarus, Federatia Rusa'
+        title: 'ucraine_belarus_fed_rusia'
     },
     {
         id: '3',
-        title: 'Tarile membre ale sistemului Carte Verde, Europa'
+        title: 'tarile_membre'
     }
 ]
 const Step2 = () => {
-
+    const {t} = useTranslation()
     const {handleChange, form, setCurrentFields, errors} = useInsuranceForm() 
 
 
@@ -106,7 +107,7 @@ const Step2 = () => {
                 {zonaDeplasare.map((item) => (
                     <Checkbox
                     key={item.id}
-                    title={item.title}
+                    title={t(item.title)}
                     value={form.zonaDeDeplasare?.includes(item.id)}
                     onChange={(value) =>onCheck(value, item.id)}
                     />
@@ -119,7 +120,7 @@ const Step2 = () => {
         className='flex flex-column gap-2'>
             <Input.Label
             className={errors.valabilitateaPolitei}
-            >Valabilitatea poliței:</Input.Label>
+            >{t('valabilitatea_politei')}</Input.Label>
             <div className='flex gap-4'>
                 {valabilitateaPolitei.map((item) => (
                     <VerticalRadio

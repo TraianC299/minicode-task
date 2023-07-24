@@ -11,8 +11,8 @@ import { useTranslation } from 'react-i18next'
 const ContainerStyles = styled.div`
 display: grid;
 padding: 1rem;
-gap: 30px;
-flex-direction: column;
+gap: 10px;
+
 align-items: flex-start;
 width: 100%;
 border-radius: 7px;
@@ -27,7 +27,12 @@ box-shadow: 0px 5px 15px 2px rgba(27, 25, 24, 0.05);
 }
 
 @media ${MEDIAQUERIES.LAPTOP} {
-  gap: 10px;
+  gap: 15px;
+  padding: 30px;
+
+}
+@media ${MEDIAQUERIES.DESKTOP} {
+  gap: 30px;
   padding: 30px;
 }
 `

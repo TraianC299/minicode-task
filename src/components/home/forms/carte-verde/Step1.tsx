@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import { useContent } from '../../../../contexts/ContentProvider.context'
 import { useInsuranceForm } from '../../../../contexts/InsuranceFormProvider.context'
 import { useEffect } from 'react'
+import { useTranslation } from 'react-i18next'
 
 
 const ContainerStyles = styled.div`
@@ -16,36 +17,37 @@ gap: 20px;
 const vehicles = [
   {
       id: '1',
-      title: 'Motocicleta B',
+      title: 'motocicleta_b',
       icon: "bike"
   },
   {
       id: '2',
-      title: 'Autoturisme A',
+      title: 'autoturisme_a',
       icon: 'car',
   },
   {
       id: '3',
-      title: 'Camion pînă la 3,5 tone',
+      title: 'camion_pana_la_3',
       icon: 'minitruck',
   },
   {
       id: '4',
-      title: 'Camion mai mult de 3,5 tone',
+      title: 'camion_peste_3',
       icon: 'truck',
   },
   {
       id: '5',
-      title: 'Microbus de pana la 20 de locuri',
+      title: 'microbus_de_pana_la_20',
       icon: 'minibus',
   },
   {
       id: '6',
-      title: 'Autobuz peste 20 locuri',
+      title: 'autobuz_peste_20',
       icon: 'bus',
   }
 ]
 const Step1 = () => {
+    const {t} = useTranslation()
   const {icons} = useContent()
   const {handleChange, form, setCurrentFields, errors} = useInsuranceForm()  
   
@@ -70,7 +72,7 @@ const Step1 = () => {
             error={errors.vehicul}
             value={form.vehicul===vehicle.id}
             key={vehicle.id}
-            title={vehicle.title}
+            title={t(vehicle.title)}
             iconSrc={icons[vehicle.icon]}
             onChange={(value) => onCheck(value, vehicle.id)}
             />
